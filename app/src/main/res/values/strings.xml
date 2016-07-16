@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Notifications For Pokémon GO</string>
+    <string name="action_settings">Settings</string>
+    <string name="share_command">Share command</string>
+    <string name="how_to">How do I do that?</string>
+    <string name="share_command_title">Share the command to send it to your PC or a nerdy friend</string>
+    <string name="root_workaround_desc">If your device isn\'t rooted, you can manually grant the required permission by executing the following ADB command from your PC (the command is one line)  \'adb shell pm grant com.tomer.poke.notifier android.permission.READ_LOGS\'  Once you have done that, the app should work properly.</string>
+    <string name="root_workaround">Non-root workaround</string>
+    <string name="required_step">One step required</string>
+    <string name="required_step_desc">This app needs a special permission to read system logs. If you don\'t have root, choose \'Root workaround\' to get instructions on how to enable non-root method.</string>
+    <string name="adb_command">adb shell pm grant com.tomer.poke.notifier android.permission.READ_LOGS</string>
+    <string name="shortcut_label">Pokemon GO with notifications</string>
+    <string name="create_shortcut">Create shortcut</string>
+    <string name="status_inactive">Notifications for GO service is inactive</string>
+    <string name="status_active">Notifications for GO service is active</string>
+    <string name="main_desc">Notifications for GO will send you notifications about new Pokémon nearby while the Pokémon GO app is opened. To use this app you must be rooted or manually grant READ_LOGS permission for the app.\n\nYou won\'t receive notifications while \'INCENSE\' is active</string>
+    <string name="hi">Hi!</string>
+    <string name="support_development">Support the development (donate)</string>
+</resources>

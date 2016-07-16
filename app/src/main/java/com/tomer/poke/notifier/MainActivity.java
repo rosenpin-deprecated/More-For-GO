@@ -47,6 +47,10 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
         SwitchCompat masterSwitch = (SwitchCompat) findViewById(R.id.master_switch);
         masterSwitch.setOnCheckedChangeListener(this);
 
+        //Set click listeners
+        findViewById(R.id.create_shortcut).setOnClickListener(this);
+        findViewById(R.id.support).setOnClickListener(this);
+
         //Set up IAP
         Intent billingServiceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
         billingServiceIntent.setPackage("com.android.vending");
@@ -89,6 +93,36 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
         stopService();
         //Update the UI
         ((TextView) findViewById(R.id.status)).setText(getString(R.string.status_inactive));
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.create_shortcut:
+                Intent shortcutIntent = new Intent(getApplicationContext(), ShortcutActivity.class);
+                shortcutIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                shortcutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                Intent addIntent = new Intent();
+                addIntent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
+                addIntent.putExtra(Intent.EXTRA_SHORTCUT_NAME, getString(R.string.shortcut_label));
+                addIntent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, Intent.ShortcutIconResource.fromContext(getApplicationContext(), R.mipmap.ic_launcher));
+                addIntent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
+                getApplicationContext().sendBroadcast(addIntent);
+                Toast.makeText(MainActivity.this, "Shortcut created", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.support:
+                try {
+                    Bundle buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
+                            SecretConstants.getPropertyValue(getApplicationContext(), "IAPID"), "inapp", SecretConstants.getPropertyValue(getApplicationContext(), "googleIAPCode"));
+                    PendingIntent pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
+                    assert pendingIntent != null;
+                    startIntentSenderForResult(pendingIntent.getIntentSender(), 1001, new Intent(), 0, 0, 0);
+                } catch (IntentSender.SendIntentException | RemoteException e) {
+                    e.printStackTrace();
+                }
+                break;
+        }
     }
 
     private void noPermissionPrompt() {
@@ -202,35 +236,5 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
     protected void onDestroy() {
         super.onDestroy();
         stopService();
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.create_shortcut:
-                Intent shortcutIntent = new Intent(getApplicationContext(), ShortcutActivity.class);
-                shortcutIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                shortcutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-                Intent addIntent = new Intent();
-                addIntent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
-                addIntent.putExtra(Intent.EXTRA_SHORTCUT_NAME, getString(R.string.shortcut_label));
-                addIntent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, Intent.ShortcutIconResource.fromContext(getApplicationContext(), R.mipmap.ic_launcher));
-                addIntent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
-                getApplicationContext().sendBroadcast(addIntent);
-                Toast.makeText(MainActivity.this, "Shortcut created", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.support:
-                try {
-                    Bundle buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
-                            SecretConstants.getPropertyValue(getApplicationContext(), "IAPID"), "inapp", SecretConstants.getPropertyValue(getApplicationContext(), "googleIAPCode"));
-                    PendingIntent pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
-                    assert pendingIntent != null;
-                    startIntentSenderForResult(pendingIntent.getIntentSender(), 1001, new Intent(), 0, 0, 0);
-                } catch (IntentSender.SendIntentException | RemoteException e) {
-                    e.printStackTrace();
-                }
-                break;
-        }
     }
 }

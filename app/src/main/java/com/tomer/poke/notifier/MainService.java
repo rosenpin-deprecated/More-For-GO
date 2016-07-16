@@ -37,7 +37,7 @@ public class MainService extends Service implements ContextConstant {
         Log.i(MAIN_SERVICE_LOG_TAG, "Checking..");
         if (log.contains("UpdateMapPokemon : Adding wild pokemon:")) {
             log = readLogs();
-            if (log.contains("vibrate")) {
+            if (log.contains("vibrate") || log.contains("MapExploreState transitioned to child state WildPokemonEncounterState")) {
                 Log.d(MAIN_SERVICE_LOG_TAG, "New pokemon found");
                 Log.d("Pokemon number", log);
                 showNotification();

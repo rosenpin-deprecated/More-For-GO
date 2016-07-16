@@ -41,3 +41,6 @@ captures/
 
 #Secret Constants
 *.properties
+
+#IDEA
+.idea

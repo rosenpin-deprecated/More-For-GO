@@ -13,6 +13,8 @@ import android.util.Log;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MainService extends Service implements ContextConstant {
 
@@ -32,16 +34,22 @@ public class MainService extends Service implements ContextConstant {
         checkLogs();
     }
 
+    private boolean vibrationMatch(String log) {
+        return log.contains("vibrate") && log.contains("PackageName: com.nianticlabs.pokemongo");
+    }
+
+    private boolean mapUpdateMatch(String log) {
+        return log.contains("Breadcrumb: UpdateMapPokemon : Adding wild pokemon:") && log.contains("Updating encounter");
+    }
+
     private void checkLogs() {
         String log = readLogs();
         Log.i(MAIN_SERVICE_LOG_TAG, "Checking..");
-        if (log.contains("UpdateMapPokemon : Adding wild pokemon:")) {
+        if (vibrationMatch(log) || mapUpdateMatch(log)) {
             log = readLogs();
-            if (log.contains("vibrate") || log.contains("MapExploreState transitioned to child state WildPokemonEncounterState")) {
-                Log.d(MAIN_SERVICE_LOG_TAG, "New pokemon found");
-                Log.d("Pokemon number", log);
-                showNotification();
-            }
+            Log.d(MAIN_SERVICE_LOG_TAG, "New pokemon found");
+            Log.d("Pokemon number", log);
+            showNotification();
         }
         clearLog();
 
@@ -57,7 +65,7 @@ public class MainService extends Service implements ContextConstant {
     private void showNotification() {
         Notification.Builder builder = new Notification.Builder(getApplicationContext());
         builder.setContentTitle(getString(R.string.app_name));
-        builder.setContentText("New pokemon!");
+        builder.setContentText("A Pokemon is nearby!");
         builder.setOngoing(false);
         builder.setPriority(Notification.PRIORITY_MAX);
         builder.setSmallIcon(R.drawable.ic_notification_on);

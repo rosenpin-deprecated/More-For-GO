@@ -10,7 +10,7 @@
     <string name="required_step_desc">This app needs a special permission to read system logs. If you don\'t have root, choose \'Root workaround\' to get instructions on how to enable non-root method.</string>
     <string name="adb_command">adb shell pm grant com.tomer.poke.notifier android.permission.READ_LOGS</string>
     <string name="shortcut_label">Pokemon GO with notifications</string>
-    <string name="create_shortcut">Create shortcut</string>
+    <string name="create_shortcut">Create a shortcut</string>
     <string name="status_inactive">Notifications for GO service is inactive</string>
     <string name="status_active">Notifications for GO service is active</string>
     <string name="main_desc">Notifications for GO will send you notifications about new Pokémon nearby while the Pokémon GO app is opened. To use this app you must be rooted or manually grant READ_LOGS permission for the app.\n\nYou won\'t receive notifications while \'INCENSE\' is active</string>

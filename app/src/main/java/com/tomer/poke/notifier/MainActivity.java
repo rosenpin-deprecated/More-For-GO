@@ -25,6 +25,9 @@ import android.widget.Toast;
 
 import com.android.vending.billing.IInAppBillingService;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class MainActivity extends AppCompatActivity implements ContextConstant, CompoundButton.OnCheckedChangeListener, View.OnClickListener {
 
     @Override
@@ -54,11 +57,11 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         try {
-            //Consume the IAP
-            mService.consumePurchase(3, getPackageName(), "poke_donation");
-        } catch (Exception e) {
+            mService.consumePurchase(3, getPackageName(), new JSONObject(data.getStringExtra("INAPP_PURCHASE_DATA")).getString("purchaseToken"));
+        } catch (RemoteException | JSONException e) {
             e.printStackTrace();
         }
+
     }
 
     @Override

@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class MainService extends Service implements ContextConstant {
-    boolean isFirstLaunch = true;
 
     @Nullable
     @Override
@@ -37,10 +36,8 @@ public class MainService extends Service implements ContextConstant {
         String log = readLogs();
         Log.i(MAIN_SERVICE_LOG_TAG, "Checking..");
         if (log.contains("UpdateMapPokemon : Adding wild pokemon:")) {
-            if (isFirstLaunch) {
-                Log.d(MAIN_SERVICE_LOG_TAG, "App loaded");
-                isFirstLaunch = false;
-            } else {
+            log = readLogs();
+            if (log.contains("vibrate")) {
                 Log.d(MAIN_SERVICE_LOG_TAG, "New pokemon found");
                 Log.d("Pokemon number", log);
                 showNotification();
@@ -59,7 +56,8 @@ public class MainService extends Service implements ContextConstant {
 
     private void showNotification() {
         Notification.Builder builder = new Notification.Builder(getApplicationContext());
-        builder.setContentTitle("New pokemon!");
+        builder.setContentTitle(getString(R.string.app_name));
+        builder.setContentText("New pokemon!");
         builder.setOngoing(false);
         builder.setPriority(Notification.PRIORITY_MAX);
         builder.setSmallIcon(R.drawable.ic_notification_on);

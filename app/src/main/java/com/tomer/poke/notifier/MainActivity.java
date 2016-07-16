@@ -71,8 +71,6 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
                 ((TextView) findViewById(R.id.status)).setText(getString(R.string.status_active));
                 //Start the service
                 startService(this);
-                //Kill the previous instance of the app
-                killPokemonGO(this);
                 //Start Pokemon GO
                 startPokemonGO(this);
                 return;

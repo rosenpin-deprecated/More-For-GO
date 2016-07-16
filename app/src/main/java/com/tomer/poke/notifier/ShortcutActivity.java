@@ -15,7 +15,6 @@ public class ShortcutActivity extends Activity {
         {
             Toast.makeText(ShortcutActivity.this, "Error, please open the notifications for GO app", Toast.LENGTH_SHORT).show();
         }
-        MainActivity.killPokemonGO(this);
         MainActivity.startPokemonGO(this);
     }
 }

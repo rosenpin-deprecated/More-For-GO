@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
         super.onActivityResult(requestCode, resultCode, data);
         try {
             mService.consumePurchase(3, getPackageName(), new JSONObject(data.getStringExtra("INAPP_PURCHASE_DATA")).getString("purchaseToken"));
-        } catch (RemoteException | JSONException e) {
+        } catch (RemoteException | JSONException | NullPointerException e) {
             e.printStackTrace();
         }
 

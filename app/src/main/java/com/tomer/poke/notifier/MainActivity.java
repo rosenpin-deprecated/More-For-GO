@@ -60,9 +60,11 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        //The user donated a dollar
         try {
+            //Try to consume the purchase so the user can donate again later
             mService.consumePurchase(3, getPackageName(), new JSONObject(data.getStringExtra("INAPP_PURCHASE_DATA")).getString("purchaseToken"));
-        } catch (RemoteException | JSONException | NullPointerException e) {
+        } catch (RemoteException | JSONException | RuntimeException e) {
             e.printStackTrace();
         }
 

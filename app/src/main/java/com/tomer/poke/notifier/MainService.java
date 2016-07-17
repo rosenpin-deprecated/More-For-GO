@@ -13,8 +13,6 @@ import android.util.Log;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class MainService extends Service implements ContextConstant {
 
@@ -35,7 +33,7 @@ public class MainService extends Service implements ContextConstant {
     }
 
     private boolean vibrationMatch(String log) {
-        return log.contains("vibrate") && log.contains("PackageName: com.nianticlabs.pokemongo");
+        return (log.contains("vibrate") && log.contains("PackageName: com.nianticlabs.pokemongo")) || log.contains("com.nianticlabs.pokemongo, ms: 500");
     }
 
     private boolean mapUpdateMatch(String log) {

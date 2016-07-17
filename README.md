@@ -9,7 +9,7 @@
 
 ##Contributing
 You can view a list of known issues and feature requests using [the issue tracker](
-https://github.com/rosenpin/AlwaysOnDisplayAmoled/issues). If you don't see your issue (or you
+https://github.com/rosenpin/notifications-for-pokemon-go/issues). If you don't see your issue (or you
 aren't sure) feel free to [submit it!](https://github.com/rosenpin/notifications-for-pokemon-go/issues/new)
 
 #### Early releases testing

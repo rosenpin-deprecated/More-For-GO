@@ -4,9 +4,11 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
@@ -15,6 +17,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class MainService extends Service implements ContextConstant {
+
+    SharedPreferences prefs;
 
     @Nullable
     @Override
@@ -26,6 +30,7 @@ public class MainService extends Service implements ContextConstant {
     public void onCreate() {
         super.onCreate();
         Log.d(MAIN_SERVICE_LOG_TAG, "Service started");
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
         //Clear previous logs
         clearLog();
         //Check logs recursively
@@ -47,7 +52,7 @@ public class MainService extends Service implements ContextConstant {
             log = readLogs();
             Log.d(MAIN_SERVICE_LOG_TAG, "New pokemon found");
             Log.d("Pokemon number", log);
-            showNotification();
+            showNotification(vibrationMatch(log), mapUpdateMatch(log));
         }
         clearLog();
 
@@ -60,17 +65,30 @@ public class MainService extends Service implements ContextConstant {
                 5000);
     }
 
-    private void showNotification() {
+    private void showNotification(boolean vibration, boolean mapUpdate) {
+        String message = "";
+        message += vibration ? "Vibration" : null;
+        message += mapUpdate ? "MapUpdate" : null;
+
         Notification.Builder builder = new Notification.Builder(getApplicationContext());
         builder.setContentTitle(getString(R.string.app_name));
-        builder.setContentText("A Pokemon is nearby!");
+        builder.setContentText(message);
         builder.setOngoing(false);
         builder.setPriority(Notification.PRIORITY_MAX);
         builder.setSmallIcon(R.drawable.ic_notification_on);
         Notification notification = builder.build();
-        notification.sound = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.notification_sound);
+        if (prefs.getBoolean("notification_sound", true)) {
+            String alarms = prefs.getString("ringtone", "android.resource://" + getPackageName() + "/" + R.raw.notification_sound);
+            notification.sound = Uri.parse(alarms);
+        }
         NotificationManager notificationManger = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        notificationManger.notify(1, notification);
+        int id = 0;
+        if (vibration) {
+            id = 1;
+        } else if (mapUpdate) {
+            id = 2;
+        }
+        notificationManger.notify(id, notification);
     }
 
     public void clearLog() {

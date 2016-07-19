@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:summary="@string/settings_notifications_desc"
+    android:title="@string/settings_notifications">
+    <PreferenceCategory android:title="@string/settings_notifications">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="notification_sound"
+            android:summary="@string/settings_notifications_sound_desc"
+            android:title="@string/settings_notifications_sound" />
+        <RingtonePreference
+            android:ringtoneType="notification"
+            android:defaultValue="content://settings/system/notification_sound"
+            android:key="notification_sound_file"
+            android:summary="@string/settings_notification_sound_file_desc"
+            android:title="@string/settings_notification_sound_file" />
+    </PreferenceCategory>
+</PreferenceScreen>

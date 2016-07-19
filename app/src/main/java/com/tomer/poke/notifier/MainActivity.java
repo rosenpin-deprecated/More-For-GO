@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SwitchCompat;
@@ -24,17 +25,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.vending.billing.IInAppBillingService;
+import com.mikepenz.materialdrawer.AccountHeader;
+import com.mikepenz.materialdrawer.AccountHeaderBuilder;
+import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity implements ContextConstant, CompoundButton.OnCheckedChangeListener, View.OnClickListener {
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
@@ -42,6 +50,9 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
         TextView toolbarTV = (TextView) toolbar.findViewById(R.id.toolbar_title);
         toolbarTV.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/pokemon_font.ttf"));
         toolbarTV.setTextColor(getResources().getColor(R.color.colorAccent));
+
+        //Navigation Drawer
+        navigationDrawer();
 
         //Set switch listener
         SwitchCompat masterSwitch = (SwitchCompat) findViewById(R.id.master_switch);
@@ -55,6 +66,41 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
         Intent billingServiceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
         billingServiceIntent.setPackage("com.android.vending");
         bindService(billingServiceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
+    }
+
+    private void navigationDrawer() {
+        AccountHeader headerResult = new AccountHeaderBuilder()
+                .withActivity(this)
+                .withHeaderBackground(R.drawable.dark_background)
+                .build();
+
+        int textColor =ContextCompat.getColor(this, R.color.material_drawer_dark_primary_text);
+        new DrawerBuilder()
+                .withActivity(this)
+                .withToolbar(toolbar)
+                .withAccountHeader(headerResult)
+                .withSelectedItem(-1)
+                .withSliderBackgroundColor(ContextCompat.getColor(this, R.color.material_drawer_dark_background))
+                .addDrawerItems(
+                        new PrimaryDrawerItem().withIdentifier(1).withName(R.string.settings).withTextColor(textColor),
+                        new PrimaryDrawerItem().withIdentifier(2).withName(R.string.about).withTextColor(textColor)
+                )
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        switch (position) {
+                            case 1:
+                                startActivity(new Intent(getApplicationContext(), Settings.class));
+                                break;
+                            case 2:
+                                openUrl("https://github.com/rosenpin/notifications-for-pokemon-go");
+                                break;
+                        }
+
+                        return true;
+                    }
+                })
+                .build();
     }
 
     @Override

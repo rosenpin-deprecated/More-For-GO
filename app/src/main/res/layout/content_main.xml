@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:weightSum="1"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.tomer.poke.notifier.MainActivity"
+    tools:context=".Activity.MainActivity"
     tools:showIn="@layout/activity_main">
 
     <TextView
@@ -57,19 +57,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.2">
+        android:layout_weight="0.3">
 
     </LinearLayout>
 
     <Button
-        android:layout_weight="0.2"
+        android:layout_weight="0.1"
         android:id="@+id/create_shortcut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/create_shortcut" />
 
     <Button
-        android:layout_weight="0.2"
+        android:layout_weight="0.1"
         android:id="@+id/support"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package com.tomer.poke.notifier;
+package com.tomer.poke.notifier.Activity;
 
 import android.app.ActivityManager;
 import android.app.PendingIntent;
@@ -31,6 +31,10 @@ import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.tomer.poke.notifier.ContextConstant;
+import com.tomer.poke.notifier.Services.MainService;
+import com.tomer.poke.notifier.R;
+import com.tomer.poke.notifier.SecretConstants;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -74,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
                 .withHeaderBackground(R.drawable.dark_background)
                 .build();
 
-        int textColor =ContextCompat.getColor(this, R.color.material_drawer_dark_primary_text);
+        int textColor = ContextCompat.getColor(this, R.color.material_drawer_dark_primary_text);
         new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(toolbar)
@@ -248,6 +252,8 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
     public static void startService(Context c) {
         //Start the listener service
         c.startService(new Intent(c.getApplicationContext(), MainService.class));
+        //Show message
+        Toast.makeText(c, "Service started", Toast.LENGTH_SHORT).show();
     }
 
     private void stopService() {

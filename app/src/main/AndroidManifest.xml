@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -24,10 +24,10 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".MainService" />
+        <service android:name=".Services.MainService" />
 
         <activity
-            android:name=".ShortcutActivity"
+            android:name=".Activity.ShortcutActivity"
             android:label="@string/shortcut_label">
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
@@ -36,10 +36,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Settings"
+            android:name=".Activity.Settings"
             android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".Activity.MainActivity"
             android:label="@string/title_activity_settings"/>
+        <service android:name=".Services.stopServiceService"/>
     </application>
 
 </manifest>

@@ -1,10 +1,13 @@
-package com.tomer.poke.notifier;
+package com.tomer.poke.notifier.Activity;
 
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+
+import com.tomer.poke.notifier.R;
+import com.tomer.poke.notifier.SettingsFragment;
 
 public class Settings extends AppCompatActivity {
 

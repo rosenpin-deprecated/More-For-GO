@@ -7,7 +7,6 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class SecretConstants {
-
     public static String getPropertyValue(Context context, String propertyName) {
         InputStream input;
         String propertyValue;

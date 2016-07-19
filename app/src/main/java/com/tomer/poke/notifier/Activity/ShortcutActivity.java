@@ -1,4 +1,4 @@
-package com.tomer.poke.notifier;
+package com.tomer.poke.notifier.Activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,9 +10,7 @@ public class ShortcutActivity extends Activity {
         super.onCreate(savedInstanceState);
         if (MainActivity.isPermissionGranted(this)) {
             MainActivity.startService(this);
-        }
-        else
-        {
+        } else {
             Toast.makeText(ShortcutActivity.this, "Error, please open the notifications for GO app", Toast.LENGTH_SHORT).show();
         }
         MainActivity.startPokemonGO(this);

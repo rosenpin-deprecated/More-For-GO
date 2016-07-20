@@ -68,6 +68,7 @@ public class MainService extends Service implements ContextConstant {
         new Handler().postDelayed(
                 new Runnable() {
                     public void run() {
+                        System.gc();
                         checkLogs();
                     }
                 },

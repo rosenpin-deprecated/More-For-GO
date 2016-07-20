@@ -32,9 +32,9 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.tomer.poke.notifier.ContextConstant;
-import com.tomer.poke.notifier.Services.MainService;
 import com.tomer.poke.notifier.R;
 import com.tomer.poke.notifier.SecretConstants;
+import com.tomer.poke.notifier.Services.MainService;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -270,7 +270,11 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
     }
 
     public static void startPokemonGO(Context c) {
-        c.startActivity(c.getPackageManager().getLaunchIntentForPackage(POKEMON_GO_PACKAGE_NAME));
+        try {
+            c.startActivity(c.getPackageManager().getLaunchIntentForPackage(POKEMON_GO_PACKAGE_NAME));
+        } catch (Exception e) {
+            Toast.makeText(c, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 
     private IInAppBillingService mService;

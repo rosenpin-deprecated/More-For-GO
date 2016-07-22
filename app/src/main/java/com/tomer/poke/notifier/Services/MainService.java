@@ -13,7 +13,6 @@ import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.tomer.poke.notifier.BuildConfig;
 import com.tomer.poke.notifier.ContextConstant;
 import com.tomer.poke.notifier.Globals;
 import com.tomer.poke.notifier.R;
@@ -25,6 +24,7 @@ import java.io.InputStreamReader;
 public class MainService extends Service implements ContextConstant {
 
     SharedPreferences prefs;
+    static final boolean DEBUG = false;
 
     @Nullable
     @Override
@@ -76,7 +76,7 @@ public class MainService extends Service implements ContextConstant {
 
     private void showNotification(String log, boolean vibration, boolean mapUpdate) {
         String message = "";
-        if (BuildConfig.DEBUG) {
+        if (DEBUG) {
             message += vibration ? "Vibration" : "";
             message += mapUpdate ? "MapUpdate" : "";
         }

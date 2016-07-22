@@ -12,7 +12,7 @@ public class ReporterActivity extends IssueReporterActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setGuestEmailRequired(true);
+        setGuestEmailRequired(false);
     }
 
     @Override

@@ -36,7 +36,6 @@ public class MainService extends Service implements ContextConstant {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d(MAIN_SERVICE_LOG_TAG, "Service started");
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         //Create notification to stop the service
         createCancelNotification();
@@ -159,7 +158,6 @@ public class MainService extends Service implements ContextConstant {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Toast.makeText(MainService.this, "Service stopped", Toast.LENGTH_SHORT).show();
         //Remove the notification
         ((NotificationManager) getSystemService(NOTIFICATION_SERVICE)).cancel(11);
         //Update the global status

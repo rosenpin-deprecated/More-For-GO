@@ -8,8 +8,8 @@ android {
         applicationId "com.tomer.poke.notifier"
         minSdkVersion 19
         targetSdkVersion 24
-        versionCode 9
-        versionName "1.05"
+        versionCode 10
+        versionName "1.06"
     }
     buildTypes {
         release {

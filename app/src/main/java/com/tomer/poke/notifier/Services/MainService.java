@@ -14,6 +14,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.tomer.poke.notifier.BuildConfig;
 import com.tomer.poke.notifier.ContextConstant;
 import com.tomer.poke.notifier.Globals;
 import com.tomer.poke.notifier.R;
@@ -77,9 +78,10 @@ public class MainService extends Service implements ContextConstant {
 
     private void showNotification(String log, boolean vibration, boolean mapUpdate) {
         String message = "";
-        message += vibration ? "Vibration" : "";
-        message += mapUpdate ? "MapUpdate" : "";
-
+        if (BuildConfig.DEBUG) {
+            message += vibration ? "Vibration" : "";
+            message += mapUpdate ? "MapUpdate" : "";
+        }
         Notification.Builder builder = new Notification.Builder(getApplicationContext());
         builder.setContentTitle(getString(R.string.app_name));
 
@@ -94,7 +96,7 @@ public class MainService extends Service implements ContextConstant {
         } catch (Exception e) {
             found = "Unknown Pokemon nearby";
         }
-        builder.setContentText(message + found);
+        builder.setContentText(message + "A " + found + " is nearby!");
         builder.setOngoing(false);
         builder.setPriority(Notification.PRIORITY_MAX);
         builder.setSmallIcon(R.drawable.ic_notification_on);

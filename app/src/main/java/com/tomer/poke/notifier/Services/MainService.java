@@ -88,8 +88,8 @@ public class MainService extends Service implements ContextConstant {
         builder.setSmallIcon(R.drawable.ic_notification_on);
         Notification notification = builder.build();
         if (prefs.getBoolean("notification_sound", true)) {
-            String alarms = prefs.getString("ringtone", "android.resource://" + getPackageName() + "/" + R.raw.notification_sound);
-            notification.sound = Uri.parse(alarms);
+            String sound = prefs.getString("notification_sound_file", "android.resource://" + getPackageName() + "/" + R.raw.notification_sound);
+            notification.sound = Uri.parse(sound);
         }
         NotificationManager notificationManger = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         int id = 0;

@@ -9,9 +9,9 @@
             android:summary="@string/settings_notifications_sound_desc"
             android:title="@string/settings_notifications_sound" />
         <RingtonePreference
-            android:ringtoneType="notification"
             android:defaultValue="content://settings/system/notification_sound"
             android:key="notification_sound_file"
+            android:ringtoneType="notification"
             android:summary="@string/settings_notification_sound_file_desc"
             android:title="@string/settings_notification_sound_file" />
     </PreferenceCategory>

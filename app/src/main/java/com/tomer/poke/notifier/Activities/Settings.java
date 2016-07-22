@@ -1,4 +1,4 @@
-package com.tomer.poke.notifier.Activity;
+package com.tomer.poke.notifier.Activities;
 
 
 import android.os.Bundle;

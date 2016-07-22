@@ -1,4 +1,4 @@
-package com.tomer.poke.notifier.Activity;
+package com.tomer.poke.notifier.Activities;
 
 import android.app.ActivityManager;
 import android.app.PendingIntent;
@@ -9,10 +9,12 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.content.ServiceConnection;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;

@@ -61,7 +61,7 @@ public class MainService extends Service implements ContextConstant {
         if (vibrationMatch(log) || mapUpdateMatch(log)) {
             Log.i(MAIN_ACTIVITY_LOG_TAG, "FOUND!");
             log = readLogs();
-            showNotification(vibrationMatch(log), mapUpdateMatch(log));
+            showNotification(log, vibrationMatch(log), mapUpdateMatch(log));
         }
         clearLog();
 
@@ -75,14 +75,26 @@ public class MainService extends Service implements ContextConstant {
                 5000);
     }
 
-    private void showNotification(boolean vibration, boolean mapUpdate) {
+    private void showNotification(String log, boolean vibration, boolean mapUpdate) {
         String message = "";
         message += vibration ? "Vibration" : "";
         message += mapUpdate ? "MapUpdate" : "";
 
         Notification.Builder builder = new Notification.Builder(getApplicationContext());
         builder.setContentTitle(getString(R.string.app_name));
-        builder.setContentText(message);
+
+        String found;
+        try {
+            int position = Integer.parseInt((log.substring(log.indexOf("Breadcrumb: UpdateMapPokemon : Adding wild pokemon:") + "Breadcrumb: UpdateMapPokemon : Adding wild pokemon:".length(), log.indexOf("Breadcrumb: UpdateMapPokemon : Adding wild pokemon:") + "Breadcrumb: UpdateMapPokemon : Adding wild pokemon:".length() + 4)).replaceAll(" ", ""));
+            position--;
+            if (position > 151) {
+                position = position / 10;
+            }
+            found = pokemon[position];
+        } catch (Exception e) {
+            found = "Unknown Pokemon nearby";
+        }
+        builder.setContentText(message + found);
         builder.setOngoing(false);
         builder.setPriority(Notification.PRIORITY_MAX);
         builder.setSmallIcon(R.drawable.ic_notification_on);

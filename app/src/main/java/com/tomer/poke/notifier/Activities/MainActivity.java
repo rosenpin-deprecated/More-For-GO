@@ -9,12 +9,10 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.content.ServiceConnection;
 import android.graphics.Typeface;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -43,6 +41,59 @@ import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity implements ContextConstant, CompoundButton.OnCheckedChangeListener, View.OnClickListener {
     Toolbar toolbar;
+    private IInAppBillingService mService;
+    ServiceConnection mServiceConn = new ServiceConnection() {
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            mService = null;
+        }
+
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            mService = IInAppBillingService.Stub.asInterface(service);
+        }
+    };
+
+    public static boolean isPermissionGranted(Context c) {
+        //Check if the app has permission to read system log
+        String pname = c.getPackageName();
+        String[] CMDLINE_GRANTPERMS = {"su", "-c", null};
+        if (c.getPackageManager().checkPermission(android.Manifest.permission.READ_LOGS, pname) != 0) {
+            try {
+                CMDLINE_GRANTPERMS[2] = String.format("pm grant %s android.permission.READ_LOGS", pname);
+                java.lang.Process p = Runtime.getRuntime().exec(CMDLINE_GRANTPERMS);
+                int res = p.waitFor();
+                Log.d(MAIN_ACTIVITY_LOG_TAG, "exec returned: " + res);
+                if (res != 0)
+                    throw new Exception("failed to become root");
+                else
+                    return true;
+            } catch (Exception e) {
+                Log.d(MAIN_ACTIVITY_LOG_TAG, "exec(): " + e);
+                return false;
+            }
+        } else
+            return true;
+    }
+
+    public static void startService(Context c) {
+        //Start the listener service
+        c.startService(new Intent(c.getApplicationContext(), MainService.class));
+        //Show message
+        Toast.makeText(c, "Service started", Toast.LENGTH_SHORT).show();
+    }
+
+    public static void killPokemonGO(Context c) {
+        ((ActivityManager) c.getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE)).killBackgroundProcesses(POKEMON_GO_PACKAGE_NAME);
+    }
+
+    public static void startPokemonGO(Context c) {
+        try {
+            c.startActivity(c.getPackageManager().getLaunchIntentForPackage(POKEMON_GO_PACKAGE_NAME));
+        } catch (Exception e) {
+            Toast.makeText(c, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -229,35 +280,6 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
 
     }
 
-    public static boolean isPermissionGranted(Context c) {
-        //Check if the app has permission to read system log
-        String pname = c.getPackageName();
-        String[] CMDLINE_GRANTPERMS = {"su", "-c", null};
-        if (c.getPackageManager().checkPermission(android.Manifest.permission.READ_LOGS, pname) != 0) {
-            try {
-                CMDLINE_GRANTPERMS[2] = String.format("pm grant %s android.permission.READ_LOGS", pname);
-                java.lang.Process p = Runtime.getRuntime().exec(CMDLINE_GRANTPERMS);
-                int res = p.waitFor();
-                Log.d(MAIN_ACTIVITY_LOG_TAG, "exec returned: " + res);
-                if (res != 0)
-                    throw new Exception("failed to become root");
-                else
-                    return true;
-            } catch (Exception e) {
-                Log.d(MAIN_ACTIVITY_LOG_TAG, "exec(): " + e);
-                return false;
-            }
-        } else
-            return true;
-    }
-
-    public static void startService(Context c) {
-        //Start the listener service
-        c.startService(new Intent(c.getApplicationContext(), MainService.class));
-        //Show message
-        Toast.makeText(c, "Service started", Toast.LENGTH_SHORT).show();
-    }
-
     private void stopService() {
         //Stop the listener service
         stopService(new Intent(getApplicationContext(), MainService.class));
@@ -266,31 +288,6 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
     private void openUrl(String url) {
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
     }
-
-    public static void killPokemonGO(Context c) {
-        ((ActivityManager) c.getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE)).killBackgroundProcesses(POKEMON_GO_PACKAGE_NAME);
-    }
-
-    public static void startPokemonGO(Context c) {
-        try {
-            c.startActivity(c.getPackageManager().getLaunchIntentForPackage(POKEMON_GO_PACKAGE_NAME));
-        } catch (Exception e) {
-            Toast.makeText(c, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private IInAppBillingService mService;
-    ServiceConnection mServiceConn = new ServiceConnection() {
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-            mService = null;
-        }
-
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            mService = IInAppBillingService.Stub.asInterface(service);
-        }
-    };
 
     @Override
     protected void onDestroy() {

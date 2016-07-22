@@ -12,7 +12,6 @@ import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.tomer.poke.notifier.BuildConfig;
 import com.tomer.poke.notifier.ContextConstant;
@@ -88,7 +87,7 @@ public class MainService extends Service implements ContextConstant {
         try {
             int position = Integer.parseInt((log.substring(log.indexOf("Breadcrumb: UpdateMapPokemon : Adding wild pokemon:") + "Breadcrumb: UpdateMapPokemon : Adding wild pokemon:".length(), log.indexOf("Breadcrumb: UpdateMapPokemon : Adding wild pokemon:") + "Breadcrumb: UpdateMapPokemon : Adding wild pokemon:".length() + 4)).replaceAll(" ", ""));
             position--;
-            if (position > 100) {
+            if (position > 100 && position % 10 == 0) {
                 position = position / 10;
             }
             found = pokemon[position];

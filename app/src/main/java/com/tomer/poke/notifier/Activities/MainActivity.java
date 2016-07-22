@@ -235,7 +235,7 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        startActivity(new Intent(getApplicationContext(),ReporterActivity.class));
+        startActivity(new Intent(getApplicationContext(), ReporterActivity.class));
         return super.onOptionsItemSelected(item);
     }
 

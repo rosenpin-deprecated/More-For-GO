@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Notifications For Pokémon GO</string>
+    <string name="app_name">Notifications For GO</string>
     <string name="share_command">Share command</string>
     <string name="how_to">How do I do that?</string>
     <string name="share_command_title">Share the command to send it to your PC or a nerdy friend</string>

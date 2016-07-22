@@ -24,7 +24,10 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".Services.MainService" />
+        <service
+            android:name=".Services.MainService"
+            android:enabled="true"
+            android:exported="true" />
 
         <activity
             android:name=".Activities.ShortcutActivity"

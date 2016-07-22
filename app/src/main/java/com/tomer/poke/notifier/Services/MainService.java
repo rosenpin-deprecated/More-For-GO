@@ -89,14 +89,14 @@ public class MainService extends Service implements ContextConstant {
         try {
             int position = Integer.parseInt((log.substring(log.indexOf("Breadcrumb: UpdateMapPokemon : Adding wild pokemon:") + "Breadcrumb: UpdateMapPokemon : Adding wild pokemon:".length(), log.indexOf("Breadcrumb: UpdateMapPokemon : Adding wild pokemon:") + "Breadcrumb: UpdateMapPokemon : Adding wild pokemon:".length() + 4)).replaceAll(" ", ""));
             position--;
-            if (position > 151) {
+            if (position > 100) {
                 position = position / 10;
             }
             found = pokemon[position];
         } catch (Exception e) {
             found = "Unknown Pokemon nearby";
         }
-        builder.setContentText(message + "A " + found + " is nearby!");
+        builder.setContentText(message + "A " + found + " is nearby");
         builder.setOngoing(false);
         builder.setPriority(Notification.PRIORITY_MAX);
         builder.setSmallIcon(R.drawable.ic_notification_on);

@@ -37,10 +37,16 @@
         </activity>
         <activity
             android:name=".Activities.Settings"
-            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/title_activity_settings"
             android:parentActivityName=".Activities.MainActivity"
-            android:label="@string/title_activity_settings"/>
-        <service android:name=".Services.stopServiceService"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <service android:name=".Services.stopServiceService" />
+
+        <activity
+            android:name=".Activities.ReporterActivity"
+            android:parentActivityName=".Activities.MainActivity"
+            android:theme="@style/ReporterTheme" />
     </application>
 
 </manifest>

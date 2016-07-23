@@ -92,7 +92,7 @@ public class MainService extends Service implements ContextConstant {
             }
             found = pokemon[position];
         } catch (Exception e) {
-            found = "Unknown Pokemon nearby";
+            found = "Pokemon";
         }
         builder.setContentText(message + "A " + found + " is nearby");
         builder.setOngoing(false);

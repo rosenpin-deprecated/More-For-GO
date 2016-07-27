@@ -16,7 +16,7 @@ aren't sure) feel free to [submit it!](https://github.com/rosenpin/notifications
 Join the early testing channel [right here](https://play.google.com/apps/testing/com.tomer.poke.notifier) to get the latest updates first. These updates might be unstable.
 
 ## Licensing
-Always On Display is licensed under the [GNU v3 Public License.](LICENSE)
+Notifications & more for GO is licensed under the [GNU v3 Public License.](LICENSE)
 
 In addition to the terms set by the GNU v3 Public License, I require you to send me a message to let me know if you use
 any code from this repository.

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/settings_notifications">
+    <PreferenceCategory android:title="@string/settings_notifications">
+        <Preference
+            android:key="notification"
+            android:summary="@string/settings_notifications_desc"
+            android:title="@string/settings_notifications" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="persistent_notification"
+            android:summary="@string/settings_persistent_notification_desc"
+            android:title="@string/settings_persistent_notification" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/settings_general">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="show_fab"
+            android:summary="@string/settings_floating_menu_desc"
+            android:title="@string/settings_floating_menu" />
+        <ListPreference
+            android:defaultValue="51"
+            android:dependency="show_fab"
+            android:entries="@array/fab_position"
+            android:entryValues="@array/fab_position_vals"
+            android:key="fab_position"
+            android:summary="%s"
+            android:title="@string/settings_floating_menu_position" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/settings_battery_save">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:dependency="show_fab"
+            android:key="overlay"
+            android:summary="@string/settings_overlay_desc"
+            android:title="@string/settings_overlay" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:dependency="overlay"
+            android:key="dim"
+            android:summary="@string/settings_dim_desc"
+            android:title="@string/settings_dim" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="screen_of_proximity"
+            android:summary="@string/settings_screen_off_proximity_desc"
+            android:title="@string/settings_screen_off_proximity" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="battery_saver"
+            android:summary="@string/settings_battery_saver_desc"
+            android:title="@string/settings_battery_saver" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="extreme_battery_saver"
+            android:summary="@string/settings_extreme_battery_saver_desc"
+            android:title="@string/settings_extreme_battery_saver" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/settings_enhancements">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="keep_awake"
+            android:summary="@string/settings_keep_screen_on_desc"
+            android:title="@string/settings_keep_screen_on" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="kill_background_processes"
+            android:summary="@string/settings_kill_background_processes_desc"
+            android:title="@string/settings_kill_background_processes" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="maximize_brightness"
+            android:summary="@string/settings_maximize_brightness_desc"
+            android:title="@string/settings_maximize_brightness" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/settings_about">
+        <Preference
+            android:key="translate"
+            android:summary="@string/settings_translate_desc"
+            android:title="@string/settings_translate">
+
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>
+

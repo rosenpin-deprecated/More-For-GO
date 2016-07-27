@@ -35,6 +35,7 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.tomer.poke.notifier.ContextConstant;
+import com.tomer.poke.notifier.Globals;
 import com.tomer.poke.notifier.R;
 import com.tomer.poke.notifier.SecretConstants;
 import com.tomer.poke.notifier.Services.MainService;
@@ -43,9 +44,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity implements ContextConstant, CompoundButton.OnCheckedChangeListener, View.OnClickListener {
-    Toolbar toolbar;
+    private Toolbar toolbar;
+    private SwitchCompat masterSwitch;
     private IInAppBillingService mService;
-    ServiceConnection mServiceConn = new ServiceConnection() {
+    private ServiceConnection mServiceConn = new ServiceConnection() {
         @Override
         public void onServiceDisconnected(ComponentName name) {
             mService = null;
@@ -115,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
         navigationDrawer();
 
         //Set switch listener
-        SwitchCompat masterSwitch = (SwitchCompat) findViewById(R.id.master_switch);
+        masterSwitch = (SwitchCompat) findViewById(R.id.master_switch);
         masterSwitch.setOnCheckedChangeListener(this);
 
         //Set click listeners
@@ -166,14 +168,6 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        //The user donated a dollar
-        try {
-            //Try to consume the purchase so the user can donate again later
-            mService.consumePurchase(3, getPackageName(), new JSONObject(data.getStringExtra("INAPP_PURCHASE_DATA")).getString("purchaseToken"));
-        } catch (RemoteException | JSONException | RuntimeException e) {
-            e.printStackTrace();
-        }
-
     }
 
     @Override
@@ -231,6 +225,12 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
                 }
                 break;
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        masterSwitch.setChecked(Globals.active);
     }
 
     @Override
@@ -309,5 +309,6 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
     protected void onDestroy() {
         super.onDestroy();
         stopService();
+        unbindService(mServiceConn);
     }
 }

@@ -4,4 +4,11 @@
     <color name="colorPrimaryDark">#2F65AF</color>
     <color name="colorAccent">#FFCB09</color>
     <color name="card_background">#212121</color>
+
+    <color name="colorPrimaryRed">#F44336</color>
+    <color name="colorPrimaryDarkRed">#C62828</color>
+    <color name="colorPrimaryBlue">#2196F3</color>
+    <color name="colorPrimaryDarkBlue">#1565C0</color>
+    <color name="colorPrimaryYellow">#F9A825</color>
+    <color name="colorPrimaryDarkYellow">#F57F17</color>
 </resources>

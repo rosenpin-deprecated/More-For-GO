@@ -6,6 +6,9 @@
         src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" />
 </a>
 
+| Mystic | Valor  | Instinct |
+|:-:|:-:|:-:|
+| ![](ART/mystic.png) | ![](ART/valor.png) | ![](ART/instinct.png) |
 
 ##Contributing
 You can view a list of known issues and feature requests using [the issue tracker](

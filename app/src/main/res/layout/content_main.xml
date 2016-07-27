@@ -70,8 +70,8 @@
 
     <Button
         android:layout_weight="0.1"
-        android:id="@+id/support"
+        android:id="@+id/more"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/support_development" />
+        android:text="@string/more" />
 </LinearLayout>

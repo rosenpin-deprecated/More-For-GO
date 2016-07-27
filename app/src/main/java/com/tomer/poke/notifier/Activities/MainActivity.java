@@ -1,18 +1,12 @@
 package com.tomer.poke.notifier.Activities;
 
 import android.app.ActivityManager;
-import android.app.PendingIntent;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentSender;
-import android.content.ServiceConnection;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.os.RemoteException;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -27,7 +21,6 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.vending.billing.IInAppBillingService;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -37,27 +30,11 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.tomer.poke.notifier.ContextConstant;
 import com.tomer.poke.notifier.Globals;
 import com.tomer.poke.notifier.R;
-import com.tomer.poke.notifier.SecretConstants;
 import com.tomer.poke.notifier.Services.MainService;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity implements ContextConstant, CompoundButton.OnCheckedChangeListener, View.OnClickListener {
     private Toolbar toolbar;
     private SwitchCompat masterSwitch;
-    private IInAppBillingService mService;
-    private ServiceConnection mServiceConn = new ServiceConnection() {
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-            mService = null;
-        }
-
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            mService = IInAppBillingService.Stub.asInterface(service);
-        }
-    };
 
     public static boolean isPermissionGranted(Context c) {
         //Check if the app has permission to read system log
@@ -122,12 +99,7 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
 
         //Set click listeners
         findViewById(R.id.create_shortcut).setOnClickListener(this);
-        findViewById(R.id.support).setOnClickListener(this);
-
-        //Set up IAP
-        Intent billingServiceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
-        billingServiceIntent.setPackage("com.android.vending");
-        bindService(billingServiceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
+        findViewById(R.id.more).setOnClickListener(this);
     }
 
     private void navigationDrawer() {
@@ -163,11 +135,6 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
                     }
                 })
                 .build();
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -213,16 +180,9 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
                 getApplicationContext().sendBroadcast(addIntent);
                 Toast.makeText(MainActivity.this, "Shortcut created", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.support:
-                try {
-                    Bundle buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
-                            SecretConstants.getPropertyValue(getApplicationContext(), "IAPID"), "inapp", SecretConstants.getPropertyValue(getApplicationContext(), "googleIAPCode"));
-                    PendingIntent pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
-                    assert pendingIntent != null;
-                    startIntentSenderForResult(pendingIntent.getIntentSender(), 1001, new Intent(), 0, 0, 0);
-                } catch (IntentSender.SendIntentException | RemoteException e) {
-                    e.printStackTrace();
-                }
+            case R.id.more:
+                startActivity(new Intent(getApplicationContext(), com.tomer.poke.notifier.plus.Activities.MainActivity.class));
+                finish();
                 break;
         }
     }
@@ -309,6 +269,5 @@ public class MainActivity extends AppCompatActivity implements ContextConstant, 
     protected void onDestroy() {
         super.onDestroy();
         stopService();
-        unbindService(mServiceConn);
     }
 }

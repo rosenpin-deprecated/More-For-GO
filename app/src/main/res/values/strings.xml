@@ -6,6 +6,7 @@
     <string name="how_to">How do I do that?</string>
     <string name="share_command_title">Share the command to send it to your PC or a nerdy friend</string>
     <string name="root_workaround_desc">If your device isn\'t rooted, you can manually grant the required permission by executing the following ADB command from your PC (the command is one line)  \'adb shell pm grant com.tomer.poke.notifier android.permission.WRITE_SECURE_SETTINGS\'  Once you have done that, the app should work properly.</string>
+    <string name="root_workaround_notifications_desc">If your device isn\'t rooted, you can manually grant the required permission by executing the following ADB command from your PC (the command is one line)  \'adb shell pm grant com.tomer.poke.notifier android.permission.READ_LOGS\'  Once you have done that, the app should work properly.</string>
     <string name="root_workaround">Non-root workaround</string>
     <string name="required_step">One step required</string>
     <string name="required_step_desc">This app needs a special permission to read system logs. If you don\'t have root, choose \'Root workaround\' to get instructions on how to enable non-root method.</string>
@@ -138,6 +139,7 @@
     <string name="settings_floating_menu_position_desc">Choose where you want the floating menu to appear on the screen</string>
     <string name="settings_persistent_notification_desc">Show a persistent notification to keep the app running in background</string>
     <string name="settings_translate_desc">Help translating the app to your language</string>
+    <string name="more">More for GO</string>
 
     <string-array name="fab_position">
         <item>Top left</item>

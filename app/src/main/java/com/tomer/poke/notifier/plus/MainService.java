@@ -36,6 +36,7 @@ import android.widget.TextView;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 import com.tomer.poke.notifier.R;
+import com.tomer.poke.notifier.plus.Activities.ChromeTabActivity;
 import com.tomer.poke.notifier.plus.Receivers.ScreenReceiver;
 
 import java.io.IOException;
@@ -100,19 +101,19 @@ public class MainService extends Service implements PokemonGOListener {
             fab.findViewById(R.id.pokevision).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    showWebView("https://pokevision.com/");
+                    loadChromeTabFromURL("https://pokevision.com/");
                 }
             });
             fab.findViewById(R.id.cp_counter).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    showWebView("http://www.pidgeycalc.com/");
+                    loadChromeTabFromURL("http://www.pidgeycalc.com/");
                 }
             });
             fab.findViewById(R.id.pokedex).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    showWebView("http://www.pokemon.com/us/pokedex/");
+                    loadChromeTabFromURL("http://www.pokemon.com/us/pokedex/");
                 }
             });
 
@@ -136,21 +137,11 @@ public class MainService extends Service implements PokemonGOListener {
         }
     }
 
-    private void showWebView(String url) {
+    private void loadChromeTabFromURL(String url) {
         Globals.url = url;
-        Globals.floatingWebView = new FloatingWebView(this);
-        Globals.floatingWebView.loadUrl(url);
-        Globals.floatingWebView.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                if (keyEvent.getKeyCode() == KeyEvent.KEYCODE_BACK) {
-                    return true;
-                }
-                return false;
-            }
-        });
-        WindowManager.LayoutParams webViewLP = new WindowManager.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.TYPE_PHONE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH | WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED, PixelFormat.TRANSLUCENT);
-        Globals.windowManager.addView(Globals.floatingWebView, webViewLP);
+        Intent intent = new Intent(getApplicationContext(), ChromeTabActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     private void showFAB(boolean state) {

@@ -26,6 +26,12 @@
             android:key="fab_position"
             android:summary="%s"
             android:title="@string/settings_floating_menu_position" />
+        <MultiSelectListPreference
+            android:entries="@array/buttons"
+            android:entryValues="@array/buttons_values"
+            android:key="buttons"
+            android:summary="@string/settings_persistent_fabs_desc"
+            android:title="@string/settings_persistent_fabs"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/settings_battery_save">
         <SwitchPreference

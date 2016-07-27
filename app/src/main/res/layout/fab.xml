@@ -13,10 +13,25 @@
     fab:menu_openDirection="down">
 
     <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_settings"
+        fab:fab_size="mini" />
+
+
+    <com.github.clans.fab.FloatingActionButton
         android:id="@+id/pokedex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_pokedex"
+        fab:fab_size="mini" />
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/silph_road"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_silph"
         fab:fab_size="mini" />
 
     <com.github.clans.fab.FloatingActionButton
@@ -26,12 +41,18 @@
         android:src="@drawable/ic_directions"
         fab:fab_size="mini" />
 
-
     <com.github.clans.fab.FloatingActionButton
-        android:id="@+id/cp_counter"
+        android:id="@+id/pogotoolkit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_mode_edit"
+        fab:fab_size="mini" />
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/pidgey_calc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_pidgeycalc"
         fab:fab_size="mini" />
 
     <com.github.clans.fab.FloatingActionButton

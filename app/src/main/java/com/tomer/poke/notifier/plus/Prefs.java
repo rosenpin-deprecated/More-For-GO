@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import java.util.Map;
+import java.util.Set;
 
 public class Prefs {
     public static String batterySaver = "battery_saver";
@@ -64,5 +65,9 @@ public class Prefs {
             i++;
         }
         return list;
+    }
+
+    public Set<String> getStringSet(String key) {
+        return preferences.getStringSet(key, null);
     }
 }

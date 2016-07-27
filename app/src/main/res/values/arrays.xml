@@ -10,5 +10,18 @@
         <item>1</item>
         <item>2</item>
     </string-array>
-
+    <string-array name="buttons">
+        <item>PidgeyCalc</item>
+        <item>Pogotoolkit</item>
+        <item>Poke Vision</item>
+        <item>Pokedex</item>
+        <item>The Silph Road</item>
+    </string-array>
+    <string-array name="buttons_values">
+        <item>pidgey_calc</item>
+        <item>pogotoolkit</item>
+        <item>pokevision</item>
+        <item>pokedex</item>
+        <item>the_silph_road</item>
+    </string-array>
 </resources>

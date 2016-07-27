@@ -140,6 +140,8 @@
     <string name="settings_persistent_notification_desc">Show a persistent notification to keep the app running in background</string>
     <string name="settings_translate_desc">Help translating the app to your language</string>
     <string name="more">More for GO</string>
+    <string name="settings_persistent_fabs">Floating menu items</string>
+    <string name="settings_persistent_fabs_desc">Choose buttons to show up in the floating menu</string>
 
     <string-array name="fab_position">
         <item>Top left</item>

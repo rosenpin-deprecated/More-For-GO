@@ -24,7 +24,6 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.GestureDetector;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -37,10 +36,13 @@ import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 import com.tomer.poke.notifier.R;
 import com.tomer.poke.notifier.plus.Activities.ChromeTabActivity;
+import com.tomer.poke.notifier.plus.Activities.MainActivity;
 import com.tomer.poke.notifier.plus.Receivers.ScreenReceiver;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -54,7 +56,7 @@ public class MainService extends Service implements PokemonGOListener {
     private int originalBrightness;
     private int originalLocationMode;
     private int originalBrightnessMode;
-    private View fab;
+    private FloatingActionMenu fab;
     private PowerManager.WakeLock proximityToTurnOff;
     private WindowManager.LayoutParams floatingActionMenuLP;
 
@@ -83,7 +85,7 @@ public class MainService extends Service implements PokemonGOListener {
         try {
             int theme = prefs.getInt(Prefs.theme, 0);
             int color = theme == 1 ? R.color.colorPrimaryBlue : (theme == 2 ? R.color.colorPrimaryRed : (theme == 3 ? R.color.colorPrimaryYellow : R.color.colorPrimary));
-            fab = LayoutInflater.from(this).inflate(R.layout.fab, null).findViewById(R.id.menu);
+            fab = (FloatingActionMenu) LayoutInflater.from(this).inflate(R.layout.fab, null).findViewById(R.id.menu);
             ((FloatingActionMenu) fab.findViewById(R.id.menu)).setMenuButtonColorNormal(ContextCompat.getColor(this, color));
             fab.findViewById(R.id.menu).setAlpha(0.8f);
             ((FloatingActionMenu) fab.findViewById(R.id.menu)).setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {
@@ -94,9 +96,12 @@ public class MainService extends Service implements PokemonGOListener {
             });
 
             ((FloatingActionButton) fab.findViewById(R.id.pokevision)).setColorNormal(ContextCompat.getColor(this, color));
-            ((FloatingActionButton) fab.findViewById(R.id.cp_counter)).setColorNormal(ContextCompat.getColor(this, color));
+            ((FloatingActionButton) fab.findViewById(R.id.pidgey_calc)).setColorNormal(ContextCompat.getColor(this, color));
             ((FloatingActionButton) fab.findViewById(R.id.lock_fab)).setColorNormal(ContextCompat.getColor(this, color));
             ((FloatingActionButton) fab.findViewById(R.id.pokedex)).setColorNormal(ContextCompat.getColor(this, color));
+            ((FloatingActionButton) fab.findViewById(R.id.settings)).setColorNormal(ContextCompat.getColor(this, color));
+            ((FloatingActionButton) fab.findViewById(R.id.silph_road)).setColorNormal(ContextCompat.getColor(this, color));
+            ((FloatingActionButton) fab.findViewById(R.id.pogotoolkit)).setColorNormal(ContextCompat.getColor(this, color));
             floatingActionMenuLP = new WindowManager.LayoutParams(100, 100, WindowManager.LayoutParams.TYPE_PHONE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH, PixelFormat.TRANSLUCENT);
             fab.findViewById(R.id.pokevision).setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -104,7 +109,7 @@ public class MainService extends Service implements PokemonGOListener {
                     loadChromeTabFromURL("https://pokevision.com/");
                 }
             });
-            fab.findViewById(R.id.cp_counter).setOnClickListener(new View.OnClickListener() {
+            fab.findViewById(R.id.pidgey_calc).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     loadChromeTabFromURL("http://www.pidgeycalc.com/");
@@ -116,7 +121,51 @@ public class MainService extends Service implements PokemonGOListener {
                     loadChromeTabFromURL("http://www.pokemon.com/us/pokedex/");
                 }
             });
-
+            fab.findViewById(R.id.pogotoolkit).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    loadChromeTabFromURL("http://pogotoolkit.com/");
+                }
+            });
+            fab.findViewById(R.id.silph_road).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    loadChromeTabFromURL("https://thesilphroad.com/");
+                }
+            });
+            fab.findViewById(R.id.settings).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                }
+            });
+            Set<String> selections = prefs.getStringSet("searchedCourses");
+            ArrayList<Integer> ids = new ArrayList<>();
+            for (String key : selections) {
+                switch (key) {
+                    case "pidgey_calc":
+                        ids.add(R.id.pidgey_calc);
+                        break;
+                    case "pogotoolkit":
+                        ids.add(R.id.pogotoolkit);
+                        break;
+                    case "pokevision":
+                        ids.add(R.id.pokevision);
+                        break;
+                    case "pokedex":
+                        ids.add(R.id.pokedex);
+                        break;
+                    case "the_silph_road":
+                        ids.add(R.id.silph_road);
+                        break;
+                }
+            }
+            int[] buttons = {R.id.pidgey_calc, R.id.pogotoolkit, R.id.pokevision, R.id.pokedex, R.id.silph_road};
+            for (int button : buttons) {
+                if (!ids.contains(button)) {
+                    fab.findViewById(button).setVisibility(View.INVISIBLE);
+                }
+            }
             fab.findViewById(R.id.lock_fab).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

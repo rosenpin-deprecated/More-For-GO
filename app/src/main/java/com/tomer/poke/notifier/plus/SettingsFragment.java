@@ -44,6 +44,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("show_fab").setOnPreferenceChangeListener(this);
         findPreference("persistent_notification").setOnPreferenceChangeListener(this);
         findPreference("translate").setOnPreferenceClickListener(this);
+        findPreference("fab_position").setOnPreferenceClickListener(this);
         mainServiceIntent = new Intent(getActivity(), MainService.class);
         restartService();
     }

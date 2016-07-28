@@ -139,33 +139,6 @@ public class MainService extends Service implements PokemonGOListener {
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 }
             });
-            Set<String> selections = prefs.getStringSet("searchedCourses");
-            ArrayList<Integer> ids = new ArrayList<>();
-            for (String key : selections) {
-                switch (key) {
-                    case "pidgey_calc":
-                        ids.add(R.id.pidgey_calc);
-                        break;
-                    case "pogotoolkit":
-                        ids.add(R.id.pogotoolkit);
-                        break;
-                    case "pokevision":
-                        ids.add(R.id.pokevision);
-                        break;
-                    case "pokedex":
-                        ids.add(R.id.pokedex);
-                        break;
-                    case "the_silph_road":
-                        ids.add(R.id.silph_road);
-                        break;
-                }
-            }
-            int[] buttons = {R.id.pidgey_calc, R.id.pogotoolkit, R.id.pokevision, R.id.pokedex, R.id.silph_road};
-            for (int button : buttons) {
-                if (!ids.contains(button)) {
-                    fab.findViewById(button).setVisibility(View.INVISIBLE);
-                }
-            }
             fab.findViewById(R.id.lock_fab).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -186,6 +159,35 @@ public class MainService extends Service implements PokemonGOListener {
         }
     }
 
+    private void updateFab() {
+        floatingActionMenuLP.gravity = Integer.parseInt(prefs.getString(Prefs.fab_position, "51"));
+        Set<String> selections = prefs.getStringSet("buttons");
+        ArrayList<Integer> ids = new ArrayList<>();
+        for (String key : selections) {
+            if (key.equals("pidgey_calc"))
+                ids.add(R.id.pidgey_calc);
+
+            if (key.equals("pogotoolkit"))
+                ids.add(R.id.pogotoolkit);
+
+            if (key.equals("pokevision"))
+                ids.add(R.id.pokevision);
+
+            if (key.equals("pokedex"))
+                ids.add(R.id.pokedex);
+
+            if (key.equals("the_silph_road"))
+                ids.add(R.id.silph_road);
+        }
+        int[] buttons = {R.id.pidgey_calc, R.id.pogotoolkit, R.id.pokevision, R.id.pokedex, R.id.silph_road};
+        for (int button : buttons) {
+            if (!ids.contains(button)) {
+                if (fab.findViewById(button) != null)
+                    fab.removeMenuButton((FloatingActionButton) fab.findViewById(button));
+            }
+        }
+    }
+
     private void loadChromeTabFromURL(String url) {
         Globals.url = url;
         Intent intent = new Intent(getApplicationContext(), ChromeTabActivity.class);
@@ -194,12 +196,18 @@ public class MainService extends Service implements PokemonGOListener {
     }
 
     private void showFAB(boolean state) {
-        floatingActionMenuLP.gravity = Integer.parseInt(prefs.getString(Prefs.fab_position, "51"));
         if (state) {
-            if (fab.getWindowToken() == null)
+            if (fab == null)
+                initFloatingActionButton();
+            updateFab();
+            if (fab.getWindowToken() == null) {
                 ((WindowManager) this.getSystemService(WINDOW_SERVICE)).addView(fab, floatingActionMenuLP);
-        } else if (fab.getWindowToken() != null)
+            }
+        } else if (fab.getWindowToken() != null) {
+            fab.close(true);
             ((WindowManager) this.getSystemService(WINDOW_SERVICE)).removeView(fab);
+            fab.invalidate();
+        }
     }
 
     private void initOriginalStates() {

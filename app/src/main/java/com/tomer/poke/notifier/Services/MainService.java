@@ -56,7 +56,6 @@ public class MainService extends Service implements ContextConstant {
 
     private void checkLogs() {
         String log = readLogs();
-        Log.i(MAIN_SERVICE_LOG_TAG, "Checking..");
         if (vibrationMatch(log) || mapUpdateMatch(log)) {
             Log.i(MAIN_ACTIVITY_LOG_TAG, "FOUND!");
             log = readLogs();

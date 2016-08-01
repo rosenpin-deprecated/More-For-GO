@@ -102,6 +102,9 @@
     <string name="menu_about">Acerca de</string>
     <!--Intro-->
     <string name="intro_choose_your_team">Elige tu equipo</string>
+    <string name="mystic_team">SABIDURÍA</string>
+    <string name="valor_team">VALOR</string>
+    <string name="instinct_team">INSTINTO</string>
     <string name="intro_skip">Saltar</string>
     <!--Warnings-->
     <string name="warning_1_root">Tu dispositivo debería ser root para usar esta característica</string>

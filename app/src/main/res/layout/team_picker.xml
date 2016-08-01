@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="Mystic"
+                android:text="@string/mystic_team"
                 android:textColor="@android:color/secondary_text_light"
                 android:textSize="@dimen/team_text_size"
                 android:typeface="monospace" />
@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="VALOR"
+                android:text="@string/valor_team"
                 android:textColor="@android:color/secondary_text_light"
                 android:textSize="@dimen/team_text_size"
                 android:typeface="monospace" />
@@ -79,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="INSTINCT"
+                android:text="@string/instinct_team"
                 android:textColor="@android:color/secondary_text_light"
                 android:textSize="@dimen/team_text_size"
                 android:typeface="monospace" />

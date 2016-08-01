@@ -102,6 +102,9 @@
     <string name="menu_about">About</string>
     <!--Intro-->
     <string name="intro_choose_your_team">Choose your team</string>
+    <string name="mystic_team">MYSTIC</string>
+    <string name="valor_team">VALOR</string>
+    <string name="instinct_team">INSTINCT</string>
     <string name="intro_skip">Skip</string>
     <!--Warnings-->
     <string name="warning_1_root">Your device must be rooted to use this feature</string>

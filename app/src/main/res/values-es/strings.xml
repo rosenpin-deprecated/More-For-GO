@@ -1,0 +1,159 @@
+<resources>
+    <string name="app_name">Notifications For GO</string>
+    <string name="app_name_plus">More for GO</string>
+
+    <string name="share_command">Compartir comando</string>
+    <string name="how_to">¿Cómo hago eso?</string>
+    <string name="share_command_title">Comparte el comando para enviarlo a tu ordenador o a un amigo friki</string>
+    <string name="root_workaround_desc">Si tu dispositivo no tiene permisos root, puedes manualmente concederle los permisos requeridos ejecutando el siguiente comando ADB desde tu ordenador (el comando es una línea)  \'adb shell pm grant com.tomer.poke.notifier android.permission.WRITE_SECURE_SETTINGS\'  Una vez has hecho eso, la aplicación debería funcionar correctamente.</string>
+    <string name="root_workaround_notifications_desc">Si tu dispositivo no tiene permisos root, puedes manualmente concederle los permisos requeridos ejecutando el siguiente comando ADB desde tu ordenador (el comando es una línea)  \'adb shell pm grant com.tomer.poke.notifier android.permission.READ_LOGS\'  Una vez has hecho eso, la aplicación debería funcionar correctamente.</string>
+    <string name="root_workaround">Método sin root</string>
+    <string name="required_step">Un paso requerido</string>
+    <string name="required_step_desc">Esta aplicación necesita un permiso especial para leer registros del sistema. Si no tienes permisos root, elige \'Método sin root\' para ver instruciones de cómo activar método sin root.</string>
+    <string name="adb_command">adb shell pm grant com.tomer.poke.notifier android.permission.READ_LOGS</string>
+    <string name="shortcut_label">Pokemon GO con notificaciones</string>
+    <string name="create_shortcut">Crear acceso directo</string>
+    <string name="status_inactive">Servicio Notifications for GO está inactivo</string>
+    <string name="status_active">Servicio Notifications for GO está activo</string>
+    <string name="main_desc">Notifications for GO te enviará notificaciones sobre nuevos Pokémon cercanos mientras la aplicación Pokémon GO está abierta. Para usar esta aplicación deberías ser root o haber condecido permiso READ_LOGS manualmente a la aplicación.\n\nNo recibirás notificaciones mientras usas \'INCIENSO\</string>
+    <string name="hi">¡Hola!</string>
+    <string name="support_development">Apoya al desarrollador</string>
+    <string name="title_activity_settings">Ajustes</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Activa recomendaciones sociales</string>
+    <string name="pref_description_social_recommendations">Recomendaciones de gente para conocer
+        basado en tu historial de mensajes
+    </string>
+
+    <string name="pref_title_display_name">Nombre a mostrar</string>
+    <string name="pref_default_display_name">Mariano Sanchez</string>
+
+    <string name="pref_title_add_friends_to_messages">Añadir amigos a mensajes</string>
+    <string-array name="pref_example_list_titles">
+        <item>Siempre</item>
+        <item>Cuándo sea posible</item>
+        <item>Nunca</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Datos y sincronización</string>
+
+    <string name="pref_title_sync_frequency">Frecuencia de sincronización</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutos</item>
+        <item>30 minutos</item>
+        <item>1 hora</item>
+        <item>3 horas</item>
+        <item>6 horas</item>
+        <item>Nunca</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string name="pref_title_system_sync_settings">Ajustes de sincronización del sistema</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notificaciones</string>
+
+    <string name="pref_title_new_message_notifications">Notificación de nuevo mensaje</string>
+
+    <string name="pref_title_ringtone">Tono</string>
+    <string name="pref_ringtone_silent">Silencio</string>
+
+    <string name="pref_title_vibrate">Vibrar</string>
+    <string name="settings_notifications">Notificaciones</string>
+    <string name="settings_notifications_desc">Configura y gestiona las notificaciones</string>
+    <string name="settings_notifications_sound">Sonido de las notificaciones</string>
+    <string name="settings_notifications_sound_desc">Reproducir sonido de notificación</string>
+    <string name="settings_notification_sound_file">Tono de notificación</string>
+    <string name="settings_notification_sound_file_desc">Escoge un tono personalizado de notificación</string>
+    <string name="about">Acerca de</string>
+    <string name="settings">Ajustes</string>
+    <string name="menu_feedback">Feedback</string>
+
+
+
+
+    <!--Actions-->
+    <string name="action_support_the_development">Apoya al desarrollador</string>
+    <!--Dialog and messages-->
+    <string name="requires_support">Sólo colaboradores</string>
+    <string name="requires_support_desc">Esta característica es sólo para los colaboradores, por favor considera realizar una pequeña donación para desbloquear esta característica y motivarme para trabajar en la aplicación :)</string>
+    <string name="plus_adb_command">adb shell pm grant com.tomer.poke.notifier android.permission.WRITE_SECURE_SETTINGS</string>
+    <string name="thank_you">Gracias por tu donación :)</string>
+    <!--Menu-->
+    <string name="menu_change_team">Cambiar equipo</string>
+    <string name="menu_about">Acerca de</string>
+    <!--Intro-->
+    <string name="intro_choose_your_team">Elige tu equipo</string>
+    <string name="mystic_team">SABIDURÍA</string>
+    <string name="valor_team">VALOR</string>
+    <string name="instinct_team">INSTINTO</string>
+    <string name="intro_skip">Saltar</string>
+    <!--Warnings-->
+    <string name="warning_1_root">Tu dispositivo debería ser root para usar esta característica</string>
+    <!--Settings Category-->
+    <string name="settings_battery_save">Ahorro de batería</string>
+    <string name="settings_enhancements">Mejoras</string>
+    <string name="settings_other">Otros</string>
+    <string name="settings_general">General</string>
+    <string name="settings_about">Acerca de</string>
+    <!--Settings Titles-->
+    <string name="settings_overlay">Sobreponer pantalla</string>
+    <string name="settings_dim">Oscurecer pantalla</string>
+    <string name="settings_proximity_sensor">Sensor de proximidad</string>
+    <string name="settings_keep_screen_on">Mantener pantalla encendida</string>
+    <string name="settings_battery_saver">Ahorro de batería</string>
+    <string name="settings_kill_background_processes">Cerrar procesos en segundo plano</string>
+    <string name="settings_extreme_battery_saver">Ahorro de batería extremo</string>
+    <string name="settings_maximize_brightness">Maximizar brillo</string>
+    <string name="settings_persistent_notification">Notificación persistente</string>
+    <string name="settings_floating_menu">Menú flotante</string>
+    <string name="settings_translate">Traducir</string>
+    <!--Settings Descriptions-->
+    <string name="settings_overlay_desc">Haz clic en la primera opción en el menú flotante para mostrar una vista negra sobre la pantalla para ahorrar batería y desactivar toques. Recomendado para dispositivos con pantallas AMOLED. Oculta la sobreposición haciendo doble toque en la pantalla.</string>
+    <string name="settings_dim_desc">Oscurece la pantalla cuándo está activa la sobreposición</string>
+    <string name="settings_proximity_sensor_desc">Usar el sensor de proximidad para detectar si la sobreposición será mostrada</string>
+    <string name="settings_keep_screen_on_desc">Mantener la pantalla encendida mientras estás jugando</string>
+    <string name="settings_battery_saver_desc">Activar ahorro de batería automáticamente cuando ejecutes el juego (requiere root)</string>
+    <string name="settings_kill_background_processes_desc">Cerrar procesos en segundo plano cuando el juego sea ejecutado para ahorrar batería y aumentar el rendimiento de las aplicaciones (Recomendado para dispositivos con menos de 2GB de ram)</string>
+    <string name="settings_extreme_battery_saver_desc">Convierte la imagen a monocromo y ajusta el modo de localización a ahorro de bateria para reducir el consumo de batería. Muy recomendado para dispositivos AMOLED.</string>
+    <string name="settings_maximize_brightness_desc">Maximizar el brillo de pantalla cuando se ejecute el juego para mejorar la visión en exteriores</string>
+    <string name="settings_floating_menu_desc">Mostrar un menú flotante para conmutar sobreposición y acceso a enlaces robustos</string>
+    <string name="settings_screen_off_proximity_desc">Apagar la pantalla cuando introduzcas el dispositivo en el bolsillo o tapes el sensor de proximidad para ahorrar batería. (sólo para Android 5.0+)</string>
+    <string name="settings_screen_off_proximity">Auto modo bolsillo</string>
+    <string name="settings_floating_menu_position">Posición del menú flotante</string>
+    <string name="settings_floating_menu_position_desc">Elegir dónde quieres que aparezca el menú flotante en la pantalla</string>
+    <string name="settings_persistent_notification_desc">Mostrar una notificación persistente para mantener la aplicación ejecutada en segundo plano</string>
+    <string name="settings_translate_desc">Ayuda a traducir la aplicación a tu idioma</string>
+    <string name="more">More for GO</string>
+    <string name="settings_persistent_fabs">Items del menú flotante</string>
+    <string name="settings_persistent_fabs_desc">Elegir botones para mostrar en el menú flotante</string>
+
+    <string-array name="fab_position">
+        <item>Arriba-izquierda</item>
+        <item>Centro-izquierda</item>
+        <item>Centro-derecha</item>
+    </string-array>
+    <string-array name="fab_position_vals">
+        <item>51</item>
+        <item>19</item>
+        <item>21</item>
+    </string-array>
+</resources>

@@ -39,11 +39,11 @@ captures/
 # Keystore files
 *.jks
 
-#Secret Constants
-*.properties
-
-#IDEA
+#idea
 .idea
+app/libs/
+app/src/main/assets/secretconstants.properties
 
-#Codes
-promotion_codes.csv
+#Crowdin
+crowdin.yaml
+crowdin-cli.jar

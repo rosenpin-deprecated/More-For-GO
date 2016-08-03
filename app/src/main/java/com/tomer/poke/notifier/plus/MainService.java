@@ -163,27 +163,29 @@ public class MainService extends Service implements PokemonGOListener {
         floatingActionMenuLP.gravity = Integer.parseInt(prefs.getString(Prefs.fab_position, "51"));
         Set<String> selections = prefs.getStringSet("buttons");
         ArrayList<Integer> ids = new ArrayList<>();
-        for (String key : selections) {
-            if (key.equals("pidgey_calc"))
-                ids.add(R.id.pidgey_calc);
+        if (selections != null) {
+            for (String key : selections) {
+                if (key.equals("pidgey_calc"))
+                    ids.add(R.id.pidgey_calc);
 
-            if (key.equals("pogotoolkit"))
-                ids.add(R.id.pogotoolkit);
+                if (key.equals("pogotoolkit"))
+                    ids.add(R.id.pogotoolkit);
 
-            if (key.equals("pokevision"))
-                ids.add(R.id.pokevision);
+                if (key.equals("pokevision"))
+                    ids.add(R.id.pokevision);
 
-            if (key.equals("pokedex"))
-                ids.add(R.id.pokedex);
+                if (key.equals("pokedex"))
+                    ids.add(R.id.pokedex);
 
-            if (key.equals("the_silph_road"))
-                ids.add(R.id.silph_road);
-        }
-        int[] buttons = {R.id.pidgey_calc, R.id.pogotoolkit, R.id.pokevision, R.id.pokedex, R.id.silph_road};
-        for (int button : buttons) {
-            if (!ids.contains(button)) {
-                if (fab.findViewById(button) != null)
-                    fab.removeMenuButton((FloatingActionButton) fab.findViewById(button));
+                if (key.equals("the_silph_road"))
+                    ids.add(R.id.silph_road);
+            }
+            int[] buttons = {R.id.pidgey_calc, R.id.pogotoolkit, R.id.pokevision, R.id.pokedex, R.id.silph_road};
+            for (int button : buttons) {
+                if (!ids.contains(button)) {
+                    if (fab.findViewById(button) != null)
+                        fab.removeMenuButton((FloatingActionButton) fab.findViewById(button));
+                }
             }
         }
     }

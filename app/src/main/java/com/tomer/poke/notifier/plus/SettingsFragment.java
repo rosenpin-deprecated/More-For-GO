@@ -92,13 +92,13 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     }
 
     private void updateNotificationPreference() {
-        findPreference("notification").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+       /* findPreference("notification").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 startActivity(new Intent(getActivity(), com.tomer.poke.notifier.Activities.MainActivity.class));
                 return false;
             }
-        });
+        });*/
     }
 
     private void noSecureSettingsPermissionPrompt() {

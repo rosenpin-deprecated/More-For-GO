@@ -24,6 +24,3 @@ Join the early testing channel [right here](https://play.google.com/apps/testing
 
 ## Licensing
 Notifications & more for GO is licensed under the [GNU v3 Public License.](LICENSE)
-
-In addition to the terms set by the GNU v3 Public License, I require you to send me a message to let me know if you use
-any code from this repository.

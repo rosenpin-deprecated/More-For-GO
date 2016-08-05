@@ -28,11 +28,6 @@ After reading this post I decided to remove Notifications for GO from the Play S
 I uploaded the [APK to the releases page in this repo](https://github.com/rosenpin/notifications-for-pokemon-go/releases) so you can still download it if you want.
 But I understand if you want to request a refund, so if you do, please email me.
 
-<a href="https://play.google.com/store/apps/details?id=com.tomer.poke.notifier">
-    <img alt="Get it on Google Play"
-        height="60"
-        src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" />
-</a>
 
 | Mystic | Valor  | Instinct |
 |:-:|:-:|:-:|

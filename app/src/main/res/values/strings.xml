@@ -1,71 +1,12 @@
 <resources>
-    <string name="app_name_plus">More for GO</string>
+    <string name="app_name">More for GO</string>
 
     <string name="share_command">Share command</string>
     <string name="how_to">How do I do that?</string>
     <string name="share_command_title">Share the command to send it to your PC or a nerdy friend</string>
     <string name="root_workaround_desc">If your device isn\'t rooted, you can manually grant the required permission by executing the following ADB command from your PC (the command is one line)  \'adb shell pm grant com.tomer.poke.notifier android.permission.WRITE_SECURE_SETTINGS\'  Once you have done that, the app should work properly.</string>
-    <string name="root_workaround_notifications_desc">If your device isn\'t rooted, you can manually grant the required permission by executing the following ADB command from your PC (the command is one line)  \'adb shell pm grant com.tomer.poke.notifier android.permission.READ_LOGS\'  Once you have done that, the app should work properly.</string>
     <string name="root_workaround">Non-root workaround</string>
-    <string name="required_step">One step required</string>
-    <string name="required_step_desc">This app needs a special permission to read system logs. If you don\'t have root, choose \'Root workaround\' to get instructions on how to enable non-root method.</string>
     <string name="adb_command">adb shell pm grant com.tomer.poke.notifier android.permission.READ_LOGS</string>
-    <string name="shortcut_label">Pokemon GO with notifications</string>
-    <string name="create_shortcut">Create a shortcut</string>
-    <string name="status_inactive">Notifications for GO service is inactive</string>
-    <string name="status_active">Notifications for GO service is active</string>
-    <string name="main_desc">Notifications for GO will send you notifications about new Pokémon nearby while the Pokémon GO app is opened. To use this app you must be rooted or manually grant READ_LOGS permission for the app.\n\nYou won\'t receive notifications while \'INCENSE\' is active</string>
-    <string name="hi">Hi!</string>
-    <string name="support_development">Support the development</string>
-    <string name="title_activity_settings">Settings</string>
-
-    <!-- Strings related to Settings -->
-
-    <!-- Example General settings -->
-    <string name="pref_header_general">General</string>
-
-    <string name="pref_title_social_recommendations">Enable social recommendations</string>
-    <string name="pref_description_social_recommendations">Recommendations for people to contact
-        based on your message history
-    </string>
-
-    <string name="pref_title_display_name">Display name</string>
-    <string name="pref_default_display_name">John Smith</string>
-
-    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
-    <string-array name="pref_example_list_titles">
-        <item>Always</item>
-        <item>When possible</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_example_list_values">
-        <item>1</item>
-        <item>0</item>
-        <item>-1</item>
-    </string-array>
-
-    <!-- Example settings for Data & Sync -->
-    <string name="pref_header_data_sync">Data &amp; sync</string>
-
-    <string name="pref_title_sync_frequency">Sync frequency</string>
-    <string-array name="pref_sync_frequency_titles">
-        <item>15 minutes</item>
-        <item>30 minutes</item>
-        <item>1 hour</item>
-        <item>3 hours</item>
-        <item>6 hours</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_sync_frequency_values">
-        <item>15</item>
-        <item>30</item>
-        <item>60</item>
-        <item>180</item>
-        <item>360</item>
-        <item>-1</item>
-    </string-array>
-
-    <string name="pref_title_system_sync_settings">System sync settings</string>
 
     <!-- Example settings for Notifications -->
     <string name="pref_header_notifications">Notifications</string>
@@ -154,5 +95,20 @@
         <item>51</item>
         <item>19</item>
         <item>21</item>
+    </string-array>
+
+    <string-array name="buttons">
+        <item>PidgeyCalc</item>
+        <item>Pogotoolkit</item>
+        <item>Poke Vision</item>
+        <item>Pokedex</item>
+        <item>The Silph Road</item>
+    </string-array>
+    <string-array name="buttons_values">
+        <item>pidgey_calc</item>
+        <item>pogotoolkit</item>
+        <item>pokevision</item>
+        <item>pokedex</item>
+        <item>the_silph_road</item>
     </string-array>
 </resources>

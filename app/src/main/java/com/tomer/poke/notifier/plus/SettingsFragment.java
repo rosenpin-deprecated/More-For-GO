@@ -259,10 +259,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                     return false;
                 }
             }
-            if ((Globals.ownedItems == null || Globals.ownedItems.size() == 0) && (Boolean) o) {
-                MainActivity.promptSupport(getActivity());
-                return false;
-            }
         }
         if (preference.getKey().equals("maximize_brightness")) {
             if (!hasModifySettingsPermission()) {

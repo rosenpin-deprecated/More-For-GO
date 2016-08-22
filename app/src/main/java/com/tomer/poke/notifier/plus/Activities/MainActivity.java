@@ -26,41 +26,14 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.android.vending.billing.IInAppBillingService;
 import com.tomer.poke.notifier.R;
 import com.tomer.poke.notifier.plus.ContextUtils;
 import com.tomer.poke.notifier.plus.Globals;
 import com.tomer.poke.notifier.plus.Prefs;
-import com.tomer.poke.notifier.plus.SecretConstants;
 import com.tomer.poke.notifier.plus.SettingsFragment;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Prefs prefs;
-    private static IInAppBillingService mService;
-
-    ServiceConnection mServiceConn = new ServiceConnection() {
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-            mService = null;
-        }
-
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            mService = IInAppBillingService.Stub.asInterface(service);
-            Globals.ownedItems = null;
-            try {
-                Globals.ownedItems = mService.getPurchases(3, getPackageName(), "inapp", null).getStringArrayList("INAPP_PURCHASE_ITEM_LIST");
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-            boolean supported = false;
-            if (Globals.ownedItems != null)
-                if (Globals.ownedItems.size() > 0)
-                    supported = true;
-            Log.d("Supported", String.valueOf(supported));
-            setUpDonateButton(supported);
-        }
-    };
+public class MainActivity extends AppCompatActivity {
+    private Prefs prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,24 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             getFragmentManager().beginTransaction()
                     .replace(R.id.preferences_holder, new SettingsFragment())
                     .commit();
-            //Set up IAP
-            Intent billingServiceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
-            billingServiceIntent.setPackage("com.android.vending");
-            bindService(billingServiceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
         }
-    }
-
-    private void setUpDonateButton(boolean hide) {
-        if (hide) {
-            ((RelativeLayout) findViewById(R.id.wrapper)).removeView(findViewById(R.id.donate));
-            return;
-        }
-        TypedValue typedValue = new TypedValue();
-        getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
-        int color = typedValue.data;
-        findViewById(R.id.donate).setEnabled(true);
-        findViewById(R.id.donate).setBackgroundColor(color);
-        findViewById(R.id.donate).setOnClickListener(this);
     }
 
     private void applyTheme() {
@@ -187,20 +143,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         handleUsageAccessPermission();
     }
 
-    @Override
-    public void onClick(View view) {
-        if (view.getId() == R.id.donate) {
-            try {
-                Bundle buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
-                        SecretConstants.getPropertyValue(getApplicationContext(), "IAPID"), "inapp", SecretConstants.getPropertyValue(getApplicationContext(), "googleIAPCode"));
-                PendingIntent pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
-                assert pendingIntent != null;
-                startIntentSenderForResult(pendingIntent.getIntentSender(), 1001, new Intent(), 0, 0, 0);
-            } catch (IntentSender.SendIntentException | RemoteException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -214,41 +156,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 finish();
             }
         }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        try {
-            unbindService(mServiceConn);
-        } catch (Exception ignored) {
-        }
-    }
-
-    public static void promptSupport(final Activity activity) {
-        new AlertDialog.Builder(activity).setTitle(activity.getString(R.string.requires_support))
-                .setMessage(R.string.requires_support_desc)
-                .setPositiveButton("Support", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        try {
-                            Bundle buyIntentBundle = mService.getBuyIntent(3, activity.getPackageName(),
-                                    SecretConstants.getPropertyValue(activity.getApplicationContext(), "IAPID"), "inapp", SecretConstants.getPropertyValue(activity.getApplicationContext(), "googleIAPCode"));
-                            PendingIntent pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
-                            assert pendingIntent != null;
-                            activity.startIntentSenderForResult(pendingIntent.getIntentSender(), 1001, new Intent(), 0, 0, 0);
-                        } catch (IntentSender.SendIntentException | RemoteException e) {
-                            Toast.makeText(activity, "Error, please restart the app", Toast.LENGTH_SHORT).show();
-                            e.printStackTrace();
-                        }
-                    }
-                })
-                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                })
-                .show();
     }
 }

@@ -4,9 +4,6 @@ import android.content.Context;
 import android.view.KeyEvent;
 import android.webkit.WebView;
 
-/**
- * Created by tomer AKA rosenpin on 7/26/16.
- */
 public class FloatingWebView extends WebView {
     public FloatingWebView(Context context) {
         super(context);

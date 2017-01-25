@@ -6,10 +6,10 @@
   <string name="action_support_the_development">支援開發計畫</string>
   <!--Dialog and messages-->
   <string name="root_workaround">沒有 Root 權限的解決方案!</string>
-  <string name="root_workaround_desc">If your device isn\'t rooted, you can manually grant the required permission by executing the following ADB command from your PC (the command is one line)  \'adb shell pm grant com.tomerrosenfeld.tweaksforgo android.permission.WRITE_SECURE_SETTINGS\'  Once you have done that, the app should work properly.</string>
-  <string name="share_command">Share command</string>
+  <string name="root_workaround_desc">如果你的裝置沒有Root權限，需要在電腦上使用ADB的命令\"adb shell pm grant com.tomerrosenfeld.tweaksforgo android.permission.WRITE_SECURE_SETTINGS\"，這樣此程式才能正常使用。</string>
+  <string name="share_command">Cao ni ma</string>
   <string name="adb_command">adb shell pm grant com.tomerrosenfeld.tweaksforgo android.permission.WRITE_SECURE_SETTINGS</string>
-  <string name="share_command_title">Share the command to send it to your PC or a nerdy friend</string>
+  <string name="share_command_title">分享命令將其發送到您的 PC 或一個書呆子的朋友</string>
   <string name="how_to">ADB? 我該如何做?</string>
   <string name="thank_you">感謝您的捐贈 :)</string>
   <!--Menu-->
@@ -22,38 +22,38 @@
   <!--Warnings-->
   <string name="warning_1_root">您的裝置必須取得 Root 權限才能使用此功能</string>
   <!--Settings Category-->
-  <string name="settings_battery_save">節約耗電量</string>
+  <string name="settings_battery_save">節省電力</string>
   <string name="settings_enhancements">增強功能</string>
   <string name="settings_other">其他</string>
   <string name="settings_general">一般</string>
   <string name="settings_notifications">通知</string>
   <!--Settings Titles-->
-  <string name="settings_overlay">Overlay screen</string>
-  <string name="settings_dim">Dim screen</string>
-  <string name="settings_proximity_sensor">距離感應器</string>
+  <string name="settings_overlay">全螢幕</string>
+  <string name="settings_dim">螢幕暗淡</string>
+  <string name="settings_proximity_sensor">距離感測器</string>
   <string name="settings_keep_screen_on">保持螢幕常開</string>
   <string name="settings_battery_saver">省電模式</string>
   <string name="settings_kill_background_processes">關閉背景處理程序</string>
-  <string name="settings_extreme_battery_saver">Extreme battery saver</string>
-  <string name="settings_maximize_brightness">Maximize brightness</string>
-  <string name="settings_persistent_notification">Persistent notification</string>
+  <string name="settings_extreme_battery_saver">極度節省電池</string>
+  <string name="settings_maximize_brightness">最大化亮度</string>
+  <string name="settings_persistent_notification">顯示長駐通知</string>
   <string name="settings_floating_menu">浮動選單</string>
   <!--Settings Descriptions-->
-  <string name="settings_notifications_desc">Get notifications about new Pokemon around you. Click here to configure the notifications</string>
+  <string name="settings_notifications_desc">取得關於附近的神奇寶貝的通知。點擊此處設定通知</string>
   <string name="settings_overlay_desc">Click the first option in the floating menu to show a black view over the screen to save battery and disable touches. Recommended for devices with AMOLED screens. Hide the overlay by double tapping the screen.</string>
   <string name="settings_dim_desc">Dim screen when overlay is active</string>
   <string name="settings_proximity_sensor_desc">Use the proximity sensor to detect if overlay will be shown</string>
   <string name="settings_keep_screen_on_desc">Keep the screen on while you are playing the game</string>
-  <string name="settings_battery_saver_desc">Start battery saver automatically when the game starts (requires root)</string>
-  <string name="settings_kill_background_processes_desc">Kill background processes when the game is launched to save battery and improve the apps performance (Recommended for devices with less than 2GB of ram)</string>
+  <string name="settings_battery_saver_desc">當進入遊戲時進入省電模式(需要 root)</string>
+  <string name="settings_kill_background_processes_desc">當進入省電模式時清除後臺程序並改善應用程式性能(推薦在記憶體小於2G裝置啟用)</string>
   <string name="settings_extreme_battery_saver_desc">Make the display monochrome and set the location mode to battery saving to reduce battery consumption. Very recommended for AMOLED devices.</string>
   <string name="settings_maximize_brightness_desc">Maximize the screen brightness when the game start for better outdoor visibility</string>
   <string name="settings_floating_menu_desc">Show a floating menu to toggle overlay and access handy links</string>
-  <string name="settings_screen_off_proximity_desc">Turn off the display when you put the device in your pocket or cover the proximity sensor to save battery. (only for Android 5.0+)</string>
+  <string name="settings_screen_off_proximity_desc">當放入口袋或是光感偵測器被覆蓋時關閉螢幕，以節省電力(只支援android5.0以上)</string>
   <string name="settings_screen_off_proximity">自動口袋模式</string>
   <string name="settings_floating_menu_position">浮動選單位置</string>
-  <string name="settings_floating_menu_position_desc">Choose where you want the floating menu to appear on the screen</string>
-  <string name="settings_persistent_notification_desc">Show a persistent notification to keep the app running in background</string>
+  <string name="settings_floating_menu_position_desc">選擇希望懸浮視窗所在的位置</string>
+  <string name="settings_persistent_notification_desc">應用程式在背景執行中時顯示一個長駐通知</string>
   <string name="requires_support">僅供支援者使用</string>
   <string name="requires_support_desc">此功能是僅供支援者使用，請考慮小額捐贈解鎖此功能和鼓勵我努力製作這應用程式 :)</string>
   <string-array name="fab_position">

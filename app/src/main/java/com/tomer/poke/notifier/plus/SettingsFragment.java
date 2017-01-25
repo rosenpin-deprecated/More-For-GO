@@ -154,11 +154,9 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     }
 
     private boolean hasModifySettingsPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (!Settings.System.canWrite(getActivity())) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            if (!Settings.System.canWrite(getActivity()))
                 return false;
-            }
-        }
         return true;
     }
 

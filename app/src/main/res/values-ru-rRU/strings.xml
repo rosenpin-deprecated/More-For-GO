@@ -5,12 +5,12 @@
   <!--Actions-->
   <string name="action_support_the_development">Поддержать разработчика</string>
   <!--Dialog and messages-->
-  <string name="root_workaround">Non root workaround!</string>
-  <string name="root_workaround_desc">If your device isn\'t rooted, you can manually grant the required permission by executing the following ADB command from your PC (the command is one line)  \'adb shell pm grant com.tomerrosenfeld.tweaksforgo android.permission.WRITE_SECURE_SETTINGS\'  Once you have done that, the app should work properly.</string>
-  <string name="share_command">Share command</string>
+  <string name="root_workaround">Решение без root доступа!</string>
+  <string name="root_workaround_desc">Если ваше устройство не имеет root доступа, можно вручную предоставить требуемые разрешения путем выполнения следующей команды ADB с вашего компьютера (команда вводится одной строкой) \'adb shell pm grant com.tomerrosenfeld.tweaksforgo android.permission.WRITE_SECURE_SETTINGS\' После этого, приложение должно работать правильно.</string>
+  <string name="share_command">Поделиться</string>
   <string name="adb_command">adb shell pm grant com.tomerrosenfeld.tweaksforgo android.permission.WRITE_SECURE_SETTINGS</string>
-  <string name="share_command_title">Share the command to send it to your PC or a nerdy friend</string>
-  <string name="how_to">ADB? How do I do that?</string>
+  <string name="share_command_title">Поделиться командой, чтобы отправить её на ваш ПК или любознательному другу</string>
+  <string name="how_to">ADB? Что это и как этим пользоваться?</string>
   <string name="thank_you">Благодарю Вас за пожертвование :)</string>
   <!--Menu-->
   <string name="menu_change_team">Сменить команду</string>
@@ -28,32 +28,32 @@
   <string name="settings_general">Общие</string>
   <string name="settings_notifications">Уведомления</string>
   <!--Settings Titles-->
-  <string name="settings_overlay">Overlay screen</string>
-  <string name="settings_dim">Тусклый экран</string>
+  <string name="settings_overlay">Экранный оверлей</string>
+  <string name="settings_dim">Затемнить экран</string>
   <string name="settings_proximity_sensor">Датчик приближения</string>
   <string name="settings_keep_screen_on">Экран всегда включен</string>
   <string name="settings_battery_saver">Экономия батареи</string>
   <string name="settings_kill_background_processes">Отключить фоновые процессы</string>
   <string name="settings_extreme_battery_saver">Максимальная экономия батареи</string>
   <string name="settings_maximize_brightness">Максимальная яркость</string>
-  <string name="settings_persistent_notification">Persistent notification</string>
+  <string name="settings_persistent_notification">Постоянное уведомление</string>
   <string name="settings_floating_menu">Плавающее меню</string>
   <!--Settings Descriptions-->
-  <string name="settings_notifications_desc">Get notifications about new Pokemon around you. Click here to configure the notifications</string>
-  <string name="settings_overlay_desc">Click the first option in the floating menu to show a black view over the screen to save battery and disable touches. Recommended for devices with AMOLED screens. Hide the overlay by double tapping the screen.</string>
-  <string name="settings_dim_desc">Dim screen when overlay is active</string>
-  <string name="settings_proximity_sensor_desc">Use the proximity sensor to detect if overlay will be shown</string>
-  <string name="settings_keep_screen_on_desc">Экран всегда включен, пока вы играете в игру</string>
-  <string name="settings_battery_saver_desc">Запускать экономию батареи автоматически при старте игры (требуется root доступ)</string>
-  <string name="settings_kill_background_processes_desc">Kill background processes when the game is launched to save battery and improve the apps performance (Recommended for devices with less than 2GB of ram)</string>
-  <string name="settings_extreme_battery_saver_desc">Make the display monochrome and set the location mode to battery saving to reduce battery consumption. Very recommended for AMOLED devices.</string>
-  <string name="settings_maximize_brightness_desc">Maximize the screen brightness when the game start for better outdoor visibility</string>
-  <string name="settings_floating_menu_desc">Show a floating menu to toggle overlay and access handy links</string>
-  <string name="settings_screen_off_proximity_desc">Turn off the display when you put the device in your pocket or cover the proximity sensor to save battery. (only for Android 5.0+)</string>
+  <string name="settings_notifications_desc">Получайте уведомления о новых Pokémon рядом с вами. Нажмите здесь для настройки уведомлений</string>
+  <string name="settings_overlay_desc">Выберите первую опцию в плавающем меню для отображения черной области поверх экрана для экономии батареи и отключения прикосновений. Рекомендуется для устройства с AMOLED экранами. Скройте оверлей двойным стуком по экрану.</string>
+  <string name="settings_dim_desc">Затемнить экран, когда оверлей включён</string>
+  <string name="settings_proximity_sensor_desc">Использовать датчик близости для включения оверлея</string>
+  <string name="settings_keep_screen_on_desc">Сохранять экран включенным во время игры</string>
+  <string name="settings_battery_saver_desc">Запускать хранитель батареи автоматически при запуске игры (требуется root доступ)</string>
+  <string name="settings_kill_background_processes_desc">Убить фоновые процессы, когда игра запущена, чтобы сохранить батарею и улучшить производительность (Рекомендуется для устройств с памятью менее 2 Гб ОЗУ)</string>
+  <string name="settings_extreme_battery_saver_desc">Сделать экран чёрно-белым и установить службы геолокации в режим сохранения батареи. Рекомендуется для устройств с AMOLED экраном.</string>
+  <string name="settings_maximize_brightness_desc">Установить наибольший уровень яркости экрана во время запуска игры для улучшения видимости на улице</string>
+  <string name="settings_floating_menu_desc">Показывать плавающее меню для отображения оверлея и полезных ссылок</string>
+  <string name="settings_screen_off_proximity_desc">Выключать экран когда вы кладете устройство в карман или прикрываете датчик приближения для экономии батареи (только для Android 5.0+)</string>
   <string name="settings_screen_off_proximity">Карманный режим</string>
-  <string name="settings_floating_menu_position">Позиция плавающего меню</string>
+  <string name="settings_floating_menu_position">Положение плавающего меню</string>
   <string name="settings_floating_menu_position_desc">Выберите положение плавающего меню на экране</string>
-  <string name="settings_persistent_notification_desc">Show a persistent notification to keep the app running in background</string>
+  <string name="settings_persistent_notification_desc">Показывать постоянное уведомление для работы приложения в фоновом режиме</string>
   <string name="requires_support">Только для платящих</string>
   <string name="requires_support_desc">Эта функция доступна только для платящих. Пожалуйста, внесите небольшое пожертвование, чтобы открыть эту функцию и мотивировать меня на развитие проекта :)</string>
   <string-array name="fab_position">

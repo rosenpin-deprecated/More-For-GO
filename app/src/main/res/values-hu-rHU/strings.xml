@@ -10,34 +10,34 @@
   <string name="share_command">Share command</string>
   <string name="adb_command">adb shell pm grant com.tomerrosenfeld.tweaksforgo android.permission.WRITE_SECURE_SETTINGS</string>
   <string name="share_command_title">Share the command to send it to your PC or a nerdy friend</string>
-  <string name="how_to">ADB? How do I do that?</string>
-  <string name="thank_you">Thank you for your donation :)</string>
+  <string name="how_to">ADB? Hogy csinálom?</string>
+  <string name="thank_you">Köszönjük az adományodat :)</string>
   <!--Menu-->
-  <string name="menu_change_team">Change team</string>
-  <string name="menu_feedback">Feedback</string>
-  <string name="menu_about">About</string>
+  <string name="menu_change_team">Csapat váltás</string>
+  <string name="menu_feedback">Visszajelzés</string>
+  <string name="menu_about">Névjegy</string>
   <!--Intro-->
-  <string name="intro_choose_your_team">Choose your team</string>
-  <string name="intro_skip">Skip</string>
+  <string name="intro_choose_your_team">Válaszd ki a csapatod</string>
+  <string name="intro_skip">Kihagy</string>
   <!--Warnings-->
-  <string name="warning_1_root">Your device must be rooted to use this feature</string>
+  <string name="warning_1_root">A funkcióhoz rootolt készülék szükséges</string>
   <!--Settings Category-->
-  <string name="settings_battery_save">Battery saving</string>
+  <string name="settings_battery_save">Energiatakarékosság</string>
   <string name="settings_enhancements">Enhancements</string>
-  <string name="settings_other">Other</string>
-  <string name="settings_general">General</string>
-  <string name="settings_notifications">Notifications</string>
+  <string name="settings_other">Egyéb</string>
+  <string name="settings_general">Általános</string>
+  <string name="settings_notifications">Értesítések</string>
   <!--Settings Titles-->
   <string name="settings_overlay">Overlay screen</string>
-  <string name="settings_dim">Dim screen</string>
-  <string name="settings_proximity_sensor">Proximity sensor</string>
-  <string name="settings_keep_screen_on">Keep screen on</string>
-  <string name="settings_battery_saver">Battery saver</string>
-  <string name="settings_kill_background_processes">Kill background processes</string>
-  <string name="settings_extreme_battery_saver">Extreme battery saver</string>
-  <string name="settings_maximize_brightness">Maximize brightness</string>
+  <string name="settings_dim">Képernyő elsötétítése</string>
+  <string name="settings_proximity_sensor">Közelség érzékelő</string>
+  <string name="settings_keep_screen_on">Maradjon a képernyő bekapcsolva</string>
+  <string name="settings_battery_saver">Energiatakarékos</string>
+  <string name="settings_kill_background_processes">Háttér folyamatok bezárása</string>
+  <string name="settings_extreme_battery_saver">Extrém akkumulátor kímélő</string>
+  <string name="settings_maximize_brightness">Maximális fényerő</string>
   <string name="settings_persistent_notification">Persistent notification</string>
-  <string name="settings_floating_menu">Floating menu</string>
+  <string name="settings_floating_menu">Lebegő menü</string>
   <!--Settings Descriptions-->
   <string name="settings_notifications_desc">Get notifications about new Pokemon around you. Click here to configure the notifications</string>
   <string name="settings_overlay_desc">Click the first option in the floating menu to show a black view over the screen to save battery and disable touches. Recommended for devices with AMOLED screens. Hide the overlay by double tapping the screen.</string>
@@ -50,16 +50,16 @@
   <string name="settings_maximize_brightness_desc">Maximize the screen brightness when the game start for better outdoor visibility</string>
   <string name="settings_floating_menu_desc">Show a floating menu to toggle overlay and access handy links</string>
   <string name="settings_screen_off_proximity_desc">Turn off the display when you put the device in your pocket or cover the proximity sensor to save battery. (only for Android 5.0+)</string>
-  <string name="settings_screen_off_proximity">Auto pocket mode</string>
-  <string name="settings_floating_menu_position">Floating menu position</string>
+  <string name="settings_screen_off_proximity">Automatikus zseb mód</string>
+  <string name="settings_floating_menu_position">Lebegő menü pozíciója</string>
   <string name="settings_floating_menu_position_desc">Choose where you want the floating menu to appear on the screen</string>
   <string name="settings_persistent_notification_desc">Show a persistent notification to keep the app running in background</string>
-  <string name="requires_support">Supporters only</string>
+  <string name="requires_support">Támogatóknak</string>
   <string name="requires_support_desc">This feature is for supporters only, please consider making a small donation to unlock this feature and motivate me to work on the app :)</string>
   <string-array name="fab_position">
-    <item>Top left</item>
-    <item>Center left</item>
-    <item>Center right</item>
+    <item>Bal felül</item>
+    <item>Bal középen</item>
+    <item>Jobb középen</item>
   </string-array>
   <string-array name="fab_position_vals">
     <item>51</item>

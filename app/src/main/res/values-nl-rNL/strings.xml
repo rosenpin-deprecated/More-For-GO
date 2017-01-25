@@ -3,15 +3,16 @@
 <resources>
   <string name="app_name">Enhancements for GO</string>
   <!--Actions-->
-  <string name="action_support_the_development">Support the development</string>
+  <string name="action_support_the_development">Steun de ontwikkeling</string>
   <!--Dialog and messages-->
   <string name="root_workaround">Non root workaround!</string>
-  <string name="root_workaround_desc">If your device isn\'t rooted, you can manually grant the required permission by executing the following ADB command from your PC (the command is one line)  \'adb shell pm grant com.tomerrosenfeld.tweaksforgo android.permission.WRITE_SECURE_SETTINGS\'  Once you have done that, the app should work properly.</string>
+  <string name="root_workaround_desc">Als je apparaat niet is ge-root kan je handmatig toestemming verlenen door het volgende ADB commando van één regel uit te voeren vanaf de PC \'adb shell pm grant com.tomerrosenfeld.tweaksforgo android.permission.WRITE_SECURE_SETTINGS\'
+Eenmaal uitgevoerd zou de app correct moeten werken.</string>
   <string name="share_command">Share command</string>
   <string name="adb_command">adb shell pm grant com.tomerrosenfeld.tweaksforgo android.permission.WRITE_SECURE_SETTINGS</string>
   <string name="share_command_title">Share the command to send it to your PC or a nerdy friend</string>
-  <string name="how_to">ADB? How do I do that?</string>
-  <string name="thank_you">Thank you for your donation :)</string>
+  <string name="how_to">ADB? Hoe doe ik dat?</string>
+  <string name="thank_you">Bedankt voor je donatie :)</string>
   <!--Menu-->
   <string name="menu_change_team">Change team</string>
   <string name="menu_feedback">Feedback</string>

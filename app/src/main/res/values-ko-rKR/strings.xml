@@ -3,63 +3,63 @@
 <resources>
   <string name="app_name">Enhancements for GO</string>
   <!--Actions-->
-  <string name="action_support_the_development">Support the development</string>
+  <string name="action_support_the_development">개발자에게 지원하기</string>
   <!--Dialog and messages-->
-  <string name="root_workaround">Non root workaround!</string>
-  <string name="root_workaround_desc">If your device isn\'t rooted, you can manually grant the required permission by executing the following ADB command from your PC (the command is one line)  \'adb shell pm grant com.tomerrosenfeld.tweaksforgo android.permission.WRITE_SECURE_SETTINGS\'  Once you have done that, the app should work properly.</string>
-  <string name="share_command">Share command</string>
+  <string name="root_workaround">루팅 없이 기능을 쓰려면</string>
+  <string name="root_workaround_desc">만약 기기를 루팅하지 않았다면 PC에서 ADB를 이용해 \'adb shell pm grant com.tomerrosenfeld.tweaksforgo android.permission.WRITE_SECURE_SETTINGS\' 명령문 한 줄을 입력하여 앱에 권한을 부여해줄 수 있습니다. 일단 한 번 해 두면 기능이 잘 작동할 것입니다.</string>
+  <string name="share_command">명령문 공유</string>
   <string name="adb_command">adb shell pm grant com.tomerrosenfeld.tweaksforgo android.permission.WRITE_SECURE_SETTINGS</string>
-  <string name="share_command_title">Share the command to send it to your PC or a nerdy friend</string>
-  <string name="how_to">ADB? How do I do that?</string>
-  <string name="thank_you">Thank you for your donation :)</string>
+  <string name="share_command_title">이 명령문을 당신의 PC나 친구에게 보낼 수 있습니다.</string>
+  <string name="how_to">ADB 사용하는 법</string>
+  <string name="thank_you">기부해 주셔서 감사합니다! :)</string>
   <!--Menu-->
-  <string name="menu_change_team">Change team</string>
-  <string name="menu_feedback">Feedback</string>
-  <string name="menu_about">About</string>
+  <string name="menu_change_team">팀 바꾸기</string>
+  <string name="menu_feedback">피드백</string>
+  <string name="menu_about">앱 정보</string>
   <!--Intro-->
-  <string name="intro_choose_your_team">Choose your team</string>
-  <string name="intro_skip">Skip</string>
+  <string name="intro_choose_your_team">팀을 고르세요</string>
+  <string name="intro_skip">건너뛰기</string>
   <!--Warnings-->
-  <string name="warning_1_root">Your device must be rooted to use this feature</string>
+  <string name="warning_1_root">이 기능을 사용하려면 루팅을 해야 합니다.</string>
   <!--Settings Category-->
-  <string name="settings_battery_save">Battery saving</string>
-  <string name="settings_enhancements">Enhancements</string>
-  <string name="settings_other">Other</string>
-  <string name="settings_general">General</string>
-  <string name="settings_notifications">Notifications</string>
+  <string name="settings_battery_save">배터리 절약</string>
+  <string name="settings_enhancements">기능향상</string>
+  <string name="settings_other">기타</string>
+  <string name="settings_general">일반</string>
+  <string name="settings_notifications">알림</string>
   <!--Settings Titles-->
-  <string name="settings_overlay">Overlay screen</string>
-  <string name="settings_dim">Dim screen</string>
-  <string name="settings_proximity_sensor">Proximity sensor</string>
-  <string name="settings_keep_screen_on">Keep screen on</string>
-  <string name="settings_battery_saver">Battery saver</string>
-  <string name="settings_kill_background_processes">Kill background processes</string>
-  <string name="settings_extreme_battery_saver">Extreme battery saver</string>
-  <string name="settings_maximize_brightness">Maximize brightness</string>
-  <string name="settings_persistent_notification">Persistent notification</string>
-  <string name="settings_floating_menu">Floating menu</string>
+  <string name="settings_overlay">화면 오버레이</string>
+  <string name="settings_dim">화면 어둡게</string>
+  <string name="settings_proximity_sensor">근접 센서</string>
+  <string name="settings_keep_screen_on">화면을 켜진 상태로 유지</string>
+  <string name="settings_battery_saver">배터리 절전모드</string>
+  <string name="settings_kill_background_processes">백그라운드 프로세스를 종료하기</string>
+  <string name="settings_extreme_battery_saver">강력한 배터리 절약모드</string>
+  <string name="settings_maximize_brightness">화면 밝기를 최대치로 조정하기</string>
+  <string name="settings_persistent_notification">알림 고정하기</string>
+  <string name="settings_floating_menu">플로팅 메뉴</string>
   <!--Settings Descriptions-->
-  <string name="settings_notifications_desc">Get notifications about new Pokemon around you. Click here to configure the notifications</string>
-  <string name="settings_overlay_desc">Click the first option in the floating menu to show a black view over the screen to save battery and disable touches. Recommended for devices with AMOLED screens. Hide the overlay by double tapping the screen.</string>
-  <string name="settings_dim_desc">Dim screen when overlay is active</string>
-  <string name="settings_proximity_sensor_desc">Use the proximity sensor to detect if overlay will be shown</string>
-  <string name="settings_keep_screen_on_desc">Keep the screen on while you are playing the game</string>
-  <string name="settings_battery_saver_desc">Start battery saver automatically when the game starts (requires root)</string>
-  <string name="settings_kill_background_processes_desc">Kill background processes when the game is launched to save battery and improve the apps performance (Recommended for devices with less than 2GB of ram)</string>
-  <string name="settings_extreme_battery_saver_desc">Make the display monochrome and set the location mode to battery saving to reduce battery consumption. Very recommended for AMOLED devices.</string>
-  <string name="settings_maximize_brightness_desc">Maximize the screen brightness when the game start for better outdoor visibility</string>
-  <string name="settings_floating_menu_desc">Show a floating menu to toggle overlay and access handy links</string>
-  <string name="settings_screen_off_proximity_desc">Turn off the display when you put the device in your pocket or cover the proximity sensor to save battery. (only for Android 5.0+)</string>
-  <string name="settings_screen_off_proximity">Auto pocket mode</string>
-  <string name="settings_floating_menu_position">Floating menu position</string>
-  <string name="settings_floating_menu_position_desc">Choose where you want the floating menu to appear on the screen</string>
-  <string name="settings_persistent_notification_desc">Show a persistent notification to keep the app running in background</string>
-  <string name="requires_support">Supporters only</string>
-  <string name="requires_support_desc">This feature is for supporters only, please consider making a small donation to unlock this feature and motivate me to work on the app :)</string>
+  <string name="settings_notifications_desc">새 포켓몬이 주위에 있을 때 알립니다. 이곳을 눌러 알림설정을 조정할 수 있습니다.</string>
+  <string name="settings_overlay_desc">플로팅 메뉴의 첫째 항목을 누르면 배터리를 절약하기 위해 화면을 검게 하고 터치를 막습니다. AMOLED 화면을 사용하는 기기에 적합합니다. 화면을 두번 눌러서 오버레이를 숨깁니다.</string>
+  <string name="settings_dim_desc">화면 오버레이가 작동하는 동안 화면 어둡게 하기</string>
+  <string name="settings_proximity_sensor_desc">근접 센서를 이용하여 오버레이 사용 여부를 감지합니다.</string>
+  <string name="settings_keep_screen_on_desc">게임중에 화면을 켜진 채로 유지하기</string>
+  <string name="settings_battery_saver_desc">게임을 시작할 때 자동으로 배터리 절약모드 사용 (루팅 필요)</string>
+  <string name="settings_kill_background_processes_desc">배터리 절약 및 성능향상을 위해 게임 시작시 백그라운드 프로세스를 종료함 (램이 2GB이하인 기기에 권장)</string>
+  <string name="settings_extreme_battery_saver_desc">배터리 소모를 줄이기 위해 화면을 흑백으로 만들고 위치모드를 배터리 절약상태로 조정하기 (AMOLED기기에 권장)</string>
+  <string name="settings_maximize_brightness_desc">야외에서 보기 좋게 화면의 밝기를 최대치로 조정하기</string>
+  <string name="settings_floating_menu_desc">오버레이 등 기능사용을 위한 플로팅메뉴 띄우기</string>
+  <string name="settings_screen_off_proximity_desc">배터리 소모를 줄이기 위해 기기를 주머니에 넣거나 근접센서를 가릴 때 화면을 끕니다. (안드로이드 5.0 이상)</string>
+  <string name="settings_screen_off_proximity">근접센서 사용</string>
+  <string name="settings_floating_menu_position">플로팅 메뉴 위치</string>
+  <string name="settings_floating_menu_position_desc">화면의 어디쪽에 플로팅메뉴를 띄울 지 조정합니다</string>
+  <string name="settings_persistent_notification_desc">알림을 고정시킴으로써 앱이 항상 백그라운드에서 작동할 수 있게 합니다</string>
+  <string name="requires_support">개발을 지원해주신 유저만</string>
+  <string name="requires_support_desc">이 기능은 개발지원을 해주신 유저만 이용할 수 있습니다. 기능을 잠금해제하고 제게 앱 개발의 동기부여가 될 수 있도록 기부를 해주세요. :)</string>
   <string-array name="fab_position">
-    <item>Top left</item>
-    <item>Center left</item>
-    <item>Center right</item>
+    <item>왼쪽 위</item>
+    <item>왼쪽 가운데</item>
+    <item>오른쪽 가운데</item>
   </string-array>
   <string-array name="fab_position_vals">
     <item>51</item>
